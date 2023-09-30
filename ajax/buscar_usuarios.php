@@ -85,9 +85,7 @@
 			  <table class="table">
 				<tr  class="success">
 					<th>ID</th>
-					<th>Nombres</th>
 					<th>Usuario</th>
-					<th>Email</th>
 					<th>Agregado</th>
 					<th><span class="pull-right">Acciones</span></th>
 					
@@ -95,23 +93,18 @@
 				<?php
 				while ($row=mysqli_fetch_array($query)){
 						$user_id=$row['user_id'];
-						$fullname=$row['firstname']." ".$row["lastname"];
 						$user_name=$row['user_name'];
-						$user_email=$row['user_email'];
 						$date_added= date('d/m/Y', strtotime($row['date_added']));
 						
 					?>
 					
-					<input type="hidden" value="<?php echo $row['firstname'];?>" id="nombres<?php echo $user_id;?>">
-					<input type="hidden" value="<?php echo $row['lastname'];?>" id="apellidos<?php echo $user_id;?>">
+					
 					<input type="hidden" value="<?php echo $user_name;?>" id="usuario<?php echo $user_id;?>">
 					<input type="hidden" value="<?php echo $user_email;?>" id="email<?php echo $user_id;?>">
 				
 					<tr>
 						<td><?php echo $user_id; ?></td>
-						<td><?php echo $fullname; ?></td>
 						<td ><?php echo $user_name; ?></td>
-						<td ><?php echo $user_email; ?></td>
 						<td><?php echo $date_added;?></td>
 						
 					<td ><span class="pull-right">

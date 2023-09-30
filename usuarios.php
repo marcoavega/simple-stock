@@ -143,16 +143,12 @@ $( "#editar_password" ).submit(function( event ) {
 	}
 
 	function obtener_datos(id){
-			var nombres = $("#nombres"+id).val();
-			var apellidos = $("#apellidos"+id).val();
 			var usuario = $("#usuario"+id).val();
-			var email = $("#email"+id).val();
+			
 			
 			$("#mod_id").val(id);
-			$("#firstname2").val(nombres);
-			$("#lastname2").val(apellidos);
 			$("#user_name2").val(usuario);
-			$("#user_email2").val(email);
+			
 			
 		}
 </script>
