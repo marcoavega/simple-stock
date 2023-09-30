@@ -1,6 +1,6 @@
-<div class="navbar  navbar-fixed-bottom" style="background-color: #4F4F5A;">
+<div class="navbar  navbar-fixed-bottom" style="background-color: #1A1818;">
     <div class="container">
-      <p class="navbar-text pull-left">&copy <?php echo date('Y');?> - RADIO TECNOLOGIA.
+      <p class="navbar-text pull-left" style="color: #FFFFFF;">&copy <?php echo date('Y');?> - RADIO TECNOLOGIA.
       </p>
    </div>
 </div>

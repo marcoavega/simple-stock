@@ -1,9 +1,5 @@
 <?php
-	/*-------------------------
-	Autor: Obed Alvarado
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
+	
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
         header("location: login.php");
@@ -43,7 +39,7 @@
 		$id_producto=intval($_GET['id']);
 		$user_id=$_SESSION['user_id'];
 		$firstname=$_SESSION['firstname'];
-		$nota="$firstname eliminó $quantity producto(s) del inventario";
+		$nota="$firstname quitó $quantity producto(s) del inventario";
 		$fecha=date("Y-m-d H:i:s");
 		guardar_historial($id_producto,$user_id,$fecha,$nota,$reference,$quantity);
 		$update=eliminar_stock($id_producto,$quantity);
@@ -69,7 +65,7 @@
   <head>
     <?php include("head.php");?>
   </head>
-  <body>
+  <body style="background-color: #000000;" >
 	<?php
 	include("navbar.php");
 	include("modal/agregar_stock.php");
@@ -80,11 +76,11 @@
 	
 	<div class="container">
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
+<div class="row" >
+    <div class="col-md-12" style="border-color: #34312d">
+        <div class="panel panel-default" style="border-color: #34312d">
+          <div class="panel-body" style="background-color: #34312d;">
+            <div class="row" >
               <div class="col-sm-4 col-sm-offset-2 text-center">
 				 <img class="item-img img-responsive" src="img/stock.png" alt=""> 
 				  <br>
@@ -93,7 +89,7 @@
 					
               </div>
 			  
-              <div class="col-sm-4 text-left">
+              <div class="col-sm-4 text-left" style="background-color: #34312d; color: white;">
                 <div class="row margin-btm-20">
                     <div class="col-sm-12">
                       <span class="item-title"> <?php echo $row['nombre_producto'];?></span>
@@ -104,25 +100,28 @@
                     <div class="col-sm-12 margin-btm-10">
                     </div>
                     <div class="col-sm-12">
-                      <span class="current-stock">Stock disponible</span>
+                      <span class="current-stock">Stock disponible:</span>
                     </div>
                     <div class="col-sm-12 margin-btm-10">
-                      <span class="item-quantity"><?php echo number_format($row['stock'],2);?></span>
+                      <span class="item-quantity"><?php echo number_format($row['stock']);?></span>
+                    </div>
+<!--Para agregar-->	<div class="col-sm-12">
+                      <span class="current-stock">  </span>
                     </div>
 					<div class="col-sm-12">
-                      <span class="current-stock"> Precio venta  </span>
-                    </div>
-					<div class="col-sm-12">
-                      <span class="item-price">$ <?php echo number_format($row['precio_producto'],2);?></span>
+                      <span class="item-price"> </span>
                     </div>
 					
                     <div class="col-sm-12 margin-btm-10">
 					</div>
-                    <div class="col-sm-6 col-xs-6 col-md-4 ">
+                    <div class="col-sm-6 col-xs-6 col-md-4" style="border: 5px solid #007ea7; background-color: #FFFFFF; border-radius: 5px;">
                       <a href="" data-toggle="modal" data-target="#add-stock"><img width="100px"  src="img/stock-in.png"></a>
                     </div>
-                    <div class="col-sm-6 col-xs-6 col-md-4">
+                    <div class="col-sm-6 col-xs-6 col-md-4" style="border: 5px solid #bf211e; background-color: #FFFFFF; border-radius: 5px;">
                       <a href="" data-toggle="modal" data-target="#remove-stock"><img width="100px"  src="img/stock-out.png"></a>
+                    </div>
+					<div class="col-sm-6 col-xs-6 col-md-4" style="border: 5px solid #8eb897; background-color: #FFFFFF; border-radius: 5px;">
+                      <a href="/simple-stock/stock.php" data-toggle="modal"><img width="100px"  src="img/retorno.png"></a>
                     </div>
                     <div class="col-sm-12 margin-btm-10">
                     </div>
@@ -154,16 +153,16 @@
 							<?php
 						}
 					?>	
-					 <table class='table table-bordered'>
+					 <table class='table table-responsive' style="background-color: #34312d; color: white;">
 						<tr>
-							<th class='text-center' colspan=5 >HISTORIAL DE INVENTARIO</th>
+							<th class='text-center' colspan=5 ><h4>HISTORIAL DE INVENTARIO</h4></th>
 						</tr>
 						<tr>
-							<td>Fecha</td>
-							<td>Hora</td>
-							<td>Descripción</td>
-							<td>Referencia</td>
-							<td class='text-center'>Total</td>
+							<td><h4>Fecha</h4></td>
+							<td><h4>Hora</h4></td>
+							<td><h4>Descripción</h4></td>
+							<td><h4>Referencia</h4></td>
+							<td class='text-center'><h4>Total</h4></td>
 						</tr>
 						<?php
 							$query=mysqli_query($con,"select * from historial where id_producto='$id_producto'");

@@ -22,7 +22,7 @@
   <head>
     <?php include("head.php");?>
   </head>
-  <body>
+  <body style="background-color: #000000;">
 	<?php
 	include("navbar.php");
 	?>
@@ -73,7 +73,7 @@
 </div>
 		 
 	</div>
-	<hr>
+	
 	<?php
 	include("footer.php");
 	?>

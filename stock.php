@@ -1,7 +1,5 @@
 <?php
-	/*-------------------------
-	Web: obedalvarado.pw
-	---------------------------*/
+	
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
         header("location: login.php");
@@ -20,20 +18,21 @@
   <head>
     <?php include("head.php");?>
   </head>
-  <body>
+  <body style="background-color: #000000;">
 	<?php
 	include("navbar.php");
 	?>
 
     <div class="container">
-	<div class="panel panel-success">
-		<div class="panel-heading">
-		    <div class="btn-group pull-right">
-				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#nuevoProducto"><span class="glyphicon glyphicon-plus" ></span> Agregar</button>
+		
+	<div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
+		<div class="panel-heading" style="background-color: #454955; border-color: #000000;">
+		    <div class="btn-group pull-right" style="background-color: #454955; border-color: #000000;">
+				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#nuevoProducto" style="background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;"><span class="glyphicon glyphicon-plus" ></span> Agregar</button>
 			</div>
-			<h4><i class='glyphicon glyphicon-search'></i> Consultar inventario</h4>
+			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i> Consultar inventario</h4>
 		</div>
-		<div class="panel-body">
+		<div class="panel-body " style="background-color: #7e7f83; border-color: #d9c5b2;">
 		
 			
 			
@@ -45,12 +44,12 @@
 				
 						
 				<div class="row">
-					<div class='col-md-4'>
+					<div class='col-md-4' style="color: #FFFFFF">
 						<label>Filtrar por código o nombre</label>
 						<input type="text" class="form-control" id="q" placeholder="Código o nombre del producto" onkeyup='load(1);'>
 					</div>
 					
-					<div class='col-md-4'>
+					<div class='col-md-4' style="color: #FFFFFF">
 						<label>Filtrar por categoría</label>
 						<select class='form-control' name='id_categoria' id='id_categoria' onchange="load(1);">
 							<option value="">Selecciona una categoría</option>
@@ -68,26 +67,22 @@
 						<span id="loader"></span>
 					</div>
 				</div>
-				<hr>
+				
+				<hr style="border-color: #000000;">
 				<div class='row-fluid'>
 					<div id="resultados"></div><!-- Carga los datos ajax -->
 				</div>	
-				<div class='row'>
+				<div class='row' style="color: #FFFFFF;">
 					<div class='outer_div'></div><!-- Carga los datos ajax -->
 				</div>
 			</form>
 				
-			
-		
-	
-			
-			
-			
+				
   </div>
 </div>
 		 
-	</div>
-	<hr>
+	</div><!-- cierre container-->
+	
 	<?php
 	include("footer.php");
 	?>
