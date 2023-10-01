@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-09-2023 a las 06:22:40
+-- Tiempo de generación: 02-10-2023 a las 00:33:37
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -39,9 +39,25 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `date_added`) VALUES
-(1, 'Repuestos', 'Equipos para el hogar', '2016-12-19 00:00:00'),
-(4, 'Equipos', 'Equipos stihl', '2016-12-19 21:06:37'),
-(5, 'Accesorios', 'Accesorios stihl', '2016-12-19 21:06:39');
+(1, 'Herramientas', 'Herramientas general', '2016-12-19 00:00:00'),
+(2, 'Insumos', 'insumos consumibles', '2016-12-19 21:06:37'),
+(3, 'Materiales', 'Materiales general', '2016-12-19 21:06:39'),
+(4, 'Piezas articulor', 'piezas terminadas por parte de maquinado, entregadas al almacen', '2023-10-01 22:40:19'),
+(5, 'Producto terminado', 'producto final', '2023-10-01 22:43:38');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `detalles_ordenes_de_compra`
+--
+
+CREATE TABLE `detalles_ordenes_de_compra` (
+  `id_detalle_orden_compra` int(11) NOT NULL,
+  `id_orden_compra` int(11) NOT NULL,
+  `nombre_producto` varchar(100) NOT NULL,
+  `cantidad` int(11) NOT NULL,
+  `precio_unitario` double(11,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -65,6 +81,20 @@ CREATE TABLE `historial` (
 
 INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `nota`, `referencia`, `cantidad`) VALUES
 (1, 1, 1, '2023-09-30 05:05:39', 'Obed agregó 5 producto(s) al inventario', 'zxc', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `orden_de_compra`
+--
+
+CREATE TABLE `orden_de_compra` (
+  `id_orden_compra` int(11) NOT NULL,
+  `numero_orden` varchar(100) NOT NULL,
+  `fecha_compra` date NOT NULL,
+  `id_proveedor` int(11) NOT NULL,
+  `status_factura` enum('Factura pagada','Factura no pagada','','') NOT NULL DEFAULT 'Factura no pagada'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -96,17 +126,37 @@ CREATE TABLE `products` (
   `codigo_producto` char(20) NOT NULL,
   `nombre_producto` char(255) NOT NULL,
   `date_added` datetime NOT NULL,
-  `precio_producto` double NOT NULL,
+  `precio_producto` double(11,2) NOT NULL,
   `stock` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `id_categoria` int(11) NOT NULL,
+  `id_proveedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `id_categoria`) VALUES
-(1, 'zxc', 'gfdg', '2023-09-30 05:05:39', 20, 5, 5);
+INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `id_categoria`, `id_proveedor`) VALUES
+(1, 'zxch', 'gfdg', '2023-09-30 05:05:39', 20.00, 6, 3, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `proveedores`
+--
+
+CREATE TABLE `proveedores` (
+  `id_proveedor` int(11) NOT NULL,
+  `nombre_proveedor` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `proveedores`
+--
+
+INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`) VALUES
+(1, 'MAPI'),
+(2, 'HIGHER-TOOLS');
 
 -- --------------------------------------------------------
 
@@ -140,12 +190,26 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
 
 --
+-- Indices de la tabla `detalles_ordenes_de_compra`
+--
+ALTER TABLE `detalles_ordenes_de_compra`
+  ADD PRIMARY KEY (`id_detalle_orden_compra`),
+  ADD KEY `detalle-orden` (`id_orden_compra`);
+
+--
 -- Indices de la tabla `historial`
 --
 ALTER TABLE `historial`
   ADD PRIMARY KEY (`id_historial`),
   ADD KEY `id_producto` (`id_producto`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indices de la tabla `orden_de_compra`
+--
+ALTER TABLE `orden_de_compra`
+  ADD PRIMARY KEY (`id_orden_compra`),
+  ADD KEY `id_proveedor` (`id_proveedor`);
 
 --
 -- Indices de la tabla `permisos`
@@ -160,7 +224,14 @@ ALTER TABLE `products`
   ADD PRIMARY KEY (`id_producto`),
   ADD UNIQUE KEY `codigo_producto` (`codigo_producto`),
   ADD KEY `id_categoria` (`id_categoria`),
-  ADD KEY `id_categoria_2` (`id_categoria`);
+  ADD KEY `id_categoria_2` (`id_categoria`),
+  ADD KEY `id_proveedor` (`id_proveedor`);
+
+--
+-- Indices de la tabla `proveedores`
+--
+ALTER TABLE `proveedores`
+  ADD PRIMARY KEY (`id_proveedor`);
 
 --
 -- Indices de la tabla `users`
@@ -175,16 +246,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `detalles_ordenes_de_compra`
+--
+ALTER TABLE `detalles_ordenes_de_compra`
+  MODIFY `id_detalle_orden_compra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
   MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT de la tabla `orden_de_compra`
+--
+ALTER TABLE `orden_de_compra`
+  MODIFY `id_orden_compra` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -197,6 +280,12 @@ ALTER TABLE `users`
 --
 
 --
+-- Filtros para la tabla `detalles_ordenes_de_compra`
+--
+ALTER TABLE `detalles_ordenes_de_compra`
+  ADD CONSTRAINT `detalle-orden` FOREIGN KEY (`id_orden_compra`) REFERENCES `orden_de_compra` (`id_orden_compra`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `historial`
 --
 ALTER TABLE `historial`
@@ -204,9 +293,16 @@ ALTER TABLE `historial`
   ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Filtros para la tabla `orden_de_compra`
+--
+ALTER TABLE `orden_de_compra`
+  ADD CONSTRAINT `orden-provedores` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
+  ADD CONSTRAINT `productos-provedores` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
