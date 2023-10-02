@@ -82,7 +82,7 @@
           <div class="panel-body" style="background-color: #34312d;">
             <div class="row" >
               <div class="col-sm-4 col-sm-offset-2 text-center">
-				 <img class="item-img img-responsive" src="img/stock.png" alt=""> 
+			  <img class="item-img img-responsive" src="<?php echo $row['url_imagen']; ?>" alt="">
 				  <br>
                     <a href="#" class="btn btn-danger" onclick="eliminar('<?php echo $row['id_producto'];?>')" title="Eliminar"> <i class="glyphicon glyphicon-trash"></i> Eliminar </a> 
 					<a href="#myModal2" data-toggle="modal" data-codigo='<?php echo $row['codigo_producto'];?>' data-nombre='<?php echo $row['nombre_producto'];?>' data-categoria='<?php echo $row['id_categoria']?>' data-precio='<?php echo $row['precio_producto']?>' data-stock='<?php echo $row['stock'];?>' data-id='<?php echo $row['id_producto'];?>' class="btn btn-info" title="Editar"> <i class="glyphicon glyphicon-pencil"></i> Editar </a>	
@@ -232,6 +232,7 @@ $( "#editar_producto" ).submit(function( event ) {
 		var categoria = button.data('categoria')
 		var precio = button.data('precio')
 		var stock = button.data('stock')
+		var url_imagen = button.data('url_imagen')
 		var id = button.data('id')
 		var modal = $(this)
 		modal.find('.modal-body #mod_codigo').val(codigo)
@@ -239,6 +240,7 @@ $( "#editar_producto" ).submit(function( event ) {
 		modal.find('.modal-body #mod_categoria').val(categoria)
 		modal.find('.modal-body #mod_precio').val(precio)
 		modal.find('.modal-body #mod_stock').val(stock)
+		modal.find('.modal-body #mod_url_imagen').val(url_imagen)
 		modal.find('.modal-body #mod_id').val(id)
 	})
 	

@@ -78,13 +78,14 @@
 						$codigo_producto=$row['codigo_producto'];
 						$nombre_producto=$row['nombre_producto'];
 						$stock=$row['stock'];
+						$url_imagen=$row['url_imagen'];
 					?>
 					
 					<div class="col-lg-2 col-md-2 col-sm-6 col-xs-12 thumb text-center ng-scope" ng-repeat="item in records">
 						  <a class="thumbnail" href="producto.php?id=<?php echo $id_producto;?>">
 							  <span title="Current quantity" class="badge badge-default stock-counter ng-binding"><?php echo number_format($stock,2); ?></span>
 							  <span title="Low stock" class="low-stock-alert ng-hide" ng-show="item.current_quantity <= item.low_stock_threshold"><i class="fa fa-exclamation-triangle"></i></span>
-							  <img class="img-responsive" src="img/stock.png" alt="<?php echo $nombre_producto;?>">
+							  <img class="img-responsive" src="<?php echo $url_imagen; ?>" alt="<?php echo $nombre_producto;?>">
 						  </a>
 						  <span class="thumb-name"><strong><?php echo $nombre_producto;?></strong></span>
 						  <span class="thumb-code ng-binding"><?php echo $codigo_producto;?></span>

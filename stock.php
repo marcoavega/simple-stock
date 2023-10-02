@@ -61,18 +61,23 @@
 							?>
 						</select>
 					</div>
+
 					<div class='col-md-12 text-center'>
 						<span id="loader"></span>
 					</div>
+
 				</div>
 				
 				<hr style="border-color: #000000;">
+
 				<div class='row-fluid' style="color: #FFFFFF;">
 					<div id="resultados"></div><!-- Carga los datos ajax -->
 				</div>	
+
 				<div class='row' style="color: #FFFFFF;">
 					<div class='outer_div'></div><!-- Carga los datos ajax -->
 				</div>
+				
 			</form>
 				
 				

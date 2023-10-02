@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2023 a las 00:33:37
+-- Tiempo de generación: 02-10-2023 a las 04:58:18
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -39,9 +39,9 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `date_added`) VALUES
-(1, 'Herramientas', 'Herramientas general', '2016-12-19 00:00:00'),
-(2, 'Insumos', 'insumos consumibles', '2016-12-19 21:06:37'),
-(3, 'Materiales', 'Materiales general', '2016-12-19 21:06:39'),
+(1, 'Herramientas', 'Herramientas general', '2023-10-01 00:00:00'),
+(2, 'Insumos', 'insumos consumibles', '2023-10-01 21:06:37'),
+(3, 'Materiales', 'Materiales general', '2023-10-01 21:06:39'),
 (4, 'Piezas articulor', 'piezas terminadas por parte de maquinado, entregadas al almacen', '2023-10-01 22:40:19'),
 (5, 'Producto terminado', 'producto final', '2023-10-01 22:43:38');
 
@@ -128,6 +128,7 @@ CREATE TABLE `products` (
   `date_added` datetime NOT NULL,
   `precio_producto` double(11,2) NOT NULL,
   `stock` int(11) NOT NULL,
+  `url_imagen` varchar(100) NOT NULL,
   `id_categoria` int(11) NOT NULL,
   `id_proveedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
@@ -136,8 +137,9 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `id_categoria`, `id_proveedor`) VALUES
-(1, 'zxch', 'gfdg', '2023-09-30 05:05:39', 20.00, 6, 3, 1);
+INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
+(1, 'zxch', 'gfdg', '2023-09-30 05:05:39', 20.00, 6, '', 3, 1),
+(4, 'sdfds', 'tijeras', '2023-10-02 00:46:45', 20.50, 10, '', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -267,7 +269,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
