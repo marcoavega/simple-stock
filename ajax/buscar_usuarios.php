@@ -48,7 +48,7 @@
 	if($action == 'ajax'){
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
-		 $aColumns = array('firstname', 'lastname');//Columnas de busqueda
+		 $aColumns = array('user_name');//Columnas de busqueda
 		 $sTable = "users";
 		 $sWhere = "";
 		if ( $_GET['q'] != "" )
@@ -81,13 +81,13 @@
 		if ($numrows>0){
 			
 			?>
-			<div class="table-responsive">
-			  <table class="table">
-				<tr  class="success">
-					<th>ID</th>
-					<th>Usuario</th>
-					<th>Agregado</th>
-					<th><span class="pull-right">Acciones</span></th>
+			<div class="table-responsive" style="background-color: #454955; border-color: #000000;">
+			  <table class="table" style="background-color: #454955; border-color: #000000;">
+				<tr  class="success" style="background-color: #454955; border-color: #000000;">
+					<th style="background-color: #454955; border-color: #000000;">ID</th>
+					<th style="background-color: #454955; border-color: #000000;">Usuario</th>
+					<th style="background-color: #454955; border-color: #000000;">Agregado</th>
+					<th style="background-color: #454955; border-color: #000000;"><span class="pull-right">Acciones</span></th>
 					
 				</tr>
 				<?php

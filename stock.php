@@ -32,10 +32,8 @@
 			</div>
 			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i> Consultar inventario</h4>
 		</div>
-		<div class="panel-body " style="background-color: #7e7f83; border-color: #d9c5b2;">
+		<div class="panel-body" style="background-color: #7e7f83; border-color: #d9c5b2;">
 		
-			
-			
 			<?php
 			include("modal/registro_productos.php");
 			include("modal/editar_productos.php");
@@ -69,7 +67,7 @@
 				</div>
 				
 				<hr style="border-color: #000000;">
-				<div class='row-fluid'>
+				<div class='row-fluid' style="color: #FFFFFF;">
 					<div id="resultados"></div><!-- Carga los datos ajax -->
 				</div>	
 				<div class='row' style="color: #FFFFFF;">

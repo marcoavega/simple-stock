@@ -15,7 +15,7 @@
 	require_once ("config/conexion.php");//Contiene funcion que conecta a la base de datos
 	
 	$active_categoria="active";
-	$title="Categorías | Simple Invoice";
+	$title="Categorías | Borgatta Ingeniería";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,14 +28,14 @@
 	?>
 	
     <div class="container">
-	<div class="panel panel-success">
-		<div class="panel-heading">
-		    <div class="btn-group pull-right">
-				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#nuevoCliente"><span class="glyphicon glyphicon-plus" ></span> Nueva Categoría</button>
+	<div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
+		<div class="panel-heading" style="background-color: #454955; border-color: #000000;">
+		    <div class="btn-group pull-right" style="background-color: #454955; border-color: #000000;">
+				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#nuevoCliente" style="background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;"><span class="glyphicon glyphicon-plus" ></span> Nueva Categoría</button>
 			</div>
-			<h4><i class='glyphicon glyphicon-search'></i> Buscar Categorías</h4>
+			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i> Buscar Categorías</h4>
 		</div>
-		<div class="panel-body">
+		<div class="panel-body" style="background-color: #7e7f83; border-color: #d9c5b2;">
 		
 			
 			
@@ -45,7 +45,7 @@
 			?>
 			<form class="form-horizontal" role="form" id="datos_cotizacion">
 				
-						<div class="form-group row">
+						<div class="form-group row" style="color: #FFFFFF">
 							<label for="q" class="col-md-2 control-label">Nombre</label>
 							<div class="col-md-5">
 								<input type="text" class="form-control" id="q" placeholder="Nombre de la categoría" onkeyup='load(1);'>
@@ -61,8 +61,8 @@
 				
 				
 			</form>
-				<div id="resultados"></div><!-- Carga los datos ajax -->
-				<div class='outer_div'></div><!-- Carga los datos ajax -->
+				<div id="resultados" style="color: #FFFFFF"></div><!-- Carga los datos ajax -->
+				<div class='outer_div' style="color: #FFFFFF"></div><!-- Carga los datos ajax -->
 			
 		
 	

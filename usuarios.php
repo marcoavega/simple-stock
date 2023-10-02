@@ -1,8 +1,4 @@
 <?php
-	/*-------------------------
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
         header("location: login.php");
@@ -13,7 +9,7 @@
 	require_once ("config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 	require_once ("config/conexion.php");//Contiene funcion que conecta a la base de datos
 		$active_usuarios="active";	
-	$title="Usuarios | Simple Stock";
+	$title="Usuarios | Borgatta Ingeniería";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,14 +21,14 @@
 	include("navbar.php");
 	?> 
     <div class="container">
-		<div class="panel panel-success">
-		<div class="panel-heading">
-		    <div class="btn-group pull-right">
-				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" ></span> Nuevo Usuario</button>
+		<div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
+		<div class="panel-heading" style="background-color: #454955; border-color: #000000;">
+		    <div class="btn-group pull-right" style="background-color: #454955; border-color: #000000;">
+				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#myModal" style="background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;"><span class="glyphicon glyphicon-plus"></span> Nuevo Usuario</button>
 			</div>
-			<h4><i class='glyphicon glyphicon-search'></i> Buscar Usuarios</h4>
+			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i> Buscar Usuarios</h4>
 		</div>			
-			<div class="panel-body">
+			<div class="panel-body" style="background-color: #7e7f83; border-color: #d9c5b2;">
 			<?php
 			include("modal/registro_usuarios.php");
 			include("modal/editar_usuarios.php");
@@ -40,7 +36,7 @@
 			?>
 			<form class="form-horizontal" role="form" id="datos_cotizacion">
 				
-						<div class="form-group row">
+						<div class="form-group row" style="color: #FFFFFF">
 							<label for="q" class="col-md-2 control-label">Nombres:</label>
 							<div class="col-md-5">
 								<input type="text" class="form-control" id="q" placeholder="Nombre" onkeyup='load(1);'>
@@ -48,7 +44,7 @@
 							
 							
 							
-							<div class="col-md-3">
+							<div class="col-md-3" style="color: #FFFFFF">
 								<button type="button" class="btn btn-default" onclick='load(1);'>
 									<span class="glyphicon glyphicon-search" ></span> Buscar</button>
 								<span id="loader"></span>
@@ -59,8 +55,8 @@
 				
 				
 			</form>
-				<div id="resultados"></div><!-- Carga los datos ajax -->
-				<div class='outer_div'></div><!-- Carga los datos ajax -->
+				<div id="resultados" style="color: #FFFFFF;"></div><!-- Carga los datos ajax -->
+				<div class='outer_div' style="color: #FFFFFF;"></div><!-- Carga los datos ajax -->
 						
 			</div>
 		</div>
