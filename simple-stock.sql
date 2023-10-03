@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-10-2023 a las 04:58:18
+-- Tiempo de generación: 03-10-2023 a las 03:56:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -39,11 +39,12 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `date_added`) VALUES
+(0, 'Papelería', 'Insumos de papelería.', '2023-10-03 03:54:49'),
 (1, 'Herramientas', 'Herramientas general', '2023-10-01 00:00:00'),
-(2, 'Insumos', 'insumos consumibles', '2023-10-01 21:06:37'),
+(2, 'Insumos', 'Insumos consumibles', '2023-10-01 21:06:37'),
 (3, 'Materiales', 'Materiales general', '2023-10-01 21:06:39'),
-(4, 'Piezas articulor', 'piezas terminadas por parte de maquinado, entregadas al almacen', '2023-10-01 22:40:19'),
-(5, 'Producto terminado', 'producto final', '2023-10-01 22:43:38');
+(4, 'Piezas articulor', 'Piezas terminadas por parte de maquinado, entregadas al almacen', '2023-10-01 22:40:19'),
+(5, 'Producto terminado', 'Producto final', '2023-10-01 22:43:38');
 
 -- --------------------------------------------------------
 
@@ -138,8 +139,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
-(1, 'zxch', 'gfdg', '2023-09-30 05:05:39', 20.00, 6, '', 3, 1),
-(4, 'sdfds', 'tijeras', '2023-10-02 00:46:45', 20.50, 10, '', 1, 2);
+(1, 'zxch', 'gfdg', '2023-09-30 05:05:39', 20.00, 6, 'img/avellanador1_4.jpg', 3, 1);
 
 -- --------------------------------------------------------
 
