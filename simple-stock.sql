@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 17:53:26
+-- Tiempo de generación: 04-10-2023 a las 00:49:20
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -126,6 +126,7 @@ CREATE TABLE `products` (
   `id_producto` int(11) NOT NULL,
   `codigo_producto` char(20) NOT NULL,
   `nombre_producto` char(255) NOT NULL,
+  `descripcion` text NOT NULL,
   `date_added` datetime NOT NULL,
   `precio_producto` double(11,2) NOT NULL,
   `stock` int(11) NOT NULL,
@@ -138,8 +139,8 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
-(1, 'AV-002', 'Avellanador', '2023-09-30 05:05:39', 150.00, 6, 'img/avellanador1_4.jpg', 1, 1);
+INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `descripcion`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
+(1, 'AV-002', 'Avellanador', 'medidas', '2023-09-30 05:05:39', 150.00, 6, 'img/avellanador1_4.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
