@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2023 a las 03:56:40
+-- Tiempo de generación: 03-10-2023 a las 17:53:26
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,12 +39,12 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `date_added`) VALUES
-(0, 'Papelería', 'Insumos de papelería.', '2023-10-03 03:54:49'),
-(1, 'Herramientas', 'Herramientas general', '2023-10-01 00:00:00'),
-(2, 'Insumos', 'Insumos consumibles', '2023-10-01 21:06:37'),
-(3, 'Materiales', 'Materiales general', '2023-10-01 21:06:39'),
-(4, 'Piezas articulor', 'Piezas terminadas por parte de maquinado, entregadas al almacen', '2023-10-01 22:40:19'),
-(5, 'Producto terminado', 'Producto final', '2023-10-01 22:43:38');
+(1, 'Herraientas', 'Herramientas para las áreas.', '2023-10-03 17:43:44'),
+(2, 'Insumos', 'Insumos consumibles.', '2023-10-03 17:47:01'),
+(3, 'Materiales', 'Material para las áreas.', '2023-10-03 17:47:26'),
+(4, 'Piezas articulador', 'Piezas de articulador provenientes de maquinado terminadas.', '2023-10-03 17:48:28'),
+(5, 'Producto terminado.', 'Articulo completo.', '2023-10-03 17:49:17'),
+(6, 'Papelería', 'Insumos de papelería.', '2023-10-03 17:49:52');
 
 -- --------------------------------------------------------
 
@@ -139,7 +139,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
-(1, 'zxch', 'gfdg', '2023-09-30 05:05:39', 20.00, 6, 'img/avellanador1_4.jpg', 3, 1);
+(1, 'AV-002', 'Avellanador', '2023-09-30 05:05:39', 150.00, 6, 'img/avellanador1_4.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -248,6 +248,12 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT de la tabla `detalles_ordenes_de_compra`
 --
 ALTER TABLE `detalles_ordenes_de_compra`
@@ -275,7 +281,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -304,8 +310,8 @@ ALTER TABLE `orden_de_compra`
 -- Filtros para la tabla `products`
 --
 ALTER TABLE `products`
-  ADD CONSTRAINT `productos-provedores` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `productos-categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `productos-provedores` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `users`
