@@ -122,29 +122,34 @@ function eliminar (id){
 		?>	
 	});
 		
-$( "#guardar_producto" ).submit(function( event ) {
-  $('#guardar_datos').attr("disabled", true);
-  
- var parametros = $(this).serialize();
- $.ajax({
-    type: "POST",
-    url: "ajax/nuevo_producto.php",
-    data: parametros,
-    beforeSend: function(objeto){
-        $("#resultados_ajax_productos").html("Mensaje: Cargando...");
-    },
-    success: function(datos){
-		console.log(datos); // Agrega esto para depurar
-        $("#resultados_ajax_productos").html(datos);
-        $('#guardar_datos').attr("disabled", false);
-        load(1);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-        console.log("Error en la petición AJAX: " + textStatus + " - " + errorThrown);
-    }
-});
+	$( "#guardar_producto" ).submit(function( event ) {
+    event.preventDefault(); // Evita que el formulario se envíe automáticamente
+    
+    // Crea un objeto FormData para enviar datos que incluyen archivos
+    var formData = new FormData(this);
 
-  event.preventDefault();
-})
+    $('#guardar_datos').attr("disabled", true);
+
+    $.ajax({
+        type: "POST",
+        url: "ajax/nuevo_producto.php",
+        data: formData,
+        contentType: false, // Importante: no configurar el tipo de contenido
+        processData: false, // Importante: no procesar los datos
+        cache: false, // Importante: deshabilitar el caché
+        beforeSend: function(objeto){
+            $("#resultados_ajax_productos").html("Mensaje: Cargando...");
+        },
+        success: function(datos){
+            console.log(datos); // Agrega esto para depurar
+            $("#resultados_ajax_productos").html(datos);
+            $('#guardar_datos').attr("disabled", false);
+            load(1);
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log("Error en la petición AJAX: " + textStatus + " - " + errorThrown);
+        }
+    });
+});
 
 </script>

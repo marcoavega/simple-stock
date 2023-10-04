@@ -9,9 +9,9 @@ include('is_logged.php');
 $file_name = "";
 
 // Verifica si se envió un archivo de imagen
-if (isset($_POST['imagen'])) {
-    $file_name = $_POST['imagen']['name'];
-    $file_tmp = $_POST['imagen']['tmp_name'];
+if (isset($_FILES['imagen'])) {
+    $file_name = $_FILES['imagen']['name'];
+    $file_tmp = $_FILES['imagen']['tmp_name'];
 
     // Directorio donde deseas almacenar las imágenes
     $upload_directory = '../img/';
@@ -25,12 +25,13 @@ if (isset($_POST['imagen'])) {
     // Mueve la imagen cargada al directorio de imágenes
     if (move_uploaded_file($file_tmp, $file_path)) {
         // Imagen cargada con éxito, ahora $file_name contiene el nombre único de la imagen
+        $file_name = "img/" . $file_name; // Agrega el prefijo "img/"
     } else {
         // Error al cargar la imagen
         $errors[] = "Error al cargar la imagen.";
     }
 }
-
+// ...
 
 
 /* Inicia validación del lado del servidor */
