@@ -21,8 +21,8 @@
 		$reference=mysqli_real_escape_string($con,(strip_tags($_POST["reference"],ENT_QUOTES)));
 		$id_producto=intval($_GET['id']);
 		$user_id=$_SESSION['user_id'];
-		$firstname=$_SESSION['firstname'];
-		$nota="$firstname agregó $quantity producto(s) al inventario";
+		$user_name=$_SESSION['user_name'];
+		$nota="$user_name agregó $quantity producto(s) al inventario";
 		$fecha=date("Y-m-d H:i:s");
 		guardar_historial($id_producto,$user_id,$fecha,$nota,$reference,$quantity);
 		$update=agregar_stock($id_producto,$quantity);
@@ -38,8 +38,8 @@
 		$reference=mysqli_real_escape_string($con,(strip_tags($_POST["reference_remove"],ENT_QUOTES)));
 		$id_producto=intval($_GET['id']);
 		$user_id=$_SESSION['user_id'];
-		$firstname=$_SESSION['firstname'];
-		$nota="$firstname quitó $quantity producto(s) del inventario";
+		$user_name=$_SESSION['user_name'];
+		$nota="$user_name quitó $quantity producto(s) del inventario";
 		$fecha=date("Y-m-d H:i:s");
 		guardar_historial($id_producto,$user_id,$fecha,$nota,$reference,$quantity);
 		$update=eliminar_stock($id_producto,$quantity);
@@ -97,6 +97,9 @@
                     <div class="col-sm-12 margin-btm-10">
                       <span class="item-number"><?php echo $row['codigo_producto'];?></span>
                     </div>
+					<div class="col-sm-12 margin-btm-10">
+                      <span class="item-number"><?php echo $row['descripcion'];?></span>
+                    </div>
                     <div class="col-sm-12 margin-btm-10">
                     </div>
                     <div class="col-sm-12">
@@ -125,11 +128,11 @@
                     </div>
                     <div class="col-sm-12 margin-btm-10">
                     </div>
-                    
-                   
-                                    </div>
+                    </div>
               </div>
+
             </div>
+
             <br>
             <div class="row">
 

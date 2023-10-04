@@ -126,19 +126,24 @@ $( "#guardar_producto" ).submit(function( event ) {
   $('#guardar_datos').attr("disabled", true);
   
  var parametros = $(this).serialize();
-	 $.ajax({
-			type: "POST",
-			url: "ajax/nuevo_producto.php",
-			data: parametros,
-			 beforeSend: function(objeto){
-				$("#resultados_ajax_productos").html("Mensaje: Cargando...");
-			  },
-			success: function(datos){
-			$("#resultados_ajax_productos").html(datos);
-			$('#guardar_datos').attr("disabled", false);
-			load(1);
-		  }
-	});
+ $.ajax({
+    type: "POST",
+    url: "ajax/nuevo_producto.php",
+    data: parametros,
+    beforeSend: function(objeto){
+        $("#resultados_ajax_productos").html("Mensaje: Cargando...");
+    },
+    success: function(datos){
+		console.log(datos); // Agrega esto para depurar
+        $("#resultados_ajax_productos").html(datos);
+        $('#guardar_datos').attr("disabled", false);
+        load(1);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.log("Error en la petición AJAX: " + textStatus + " - " + errorThrown);
+    }
+});
+
   event.preventDefault();
 })
 
