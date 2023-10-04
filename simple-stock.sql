@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2023 a las 00:49:20
+-- Tiempo de generación: 04-10-2023 a las 08:34:16
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,7 +39,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `date_added`) VALUES
-(1, 'Herraientas', 'Herramientas para las áreas.', '2023-10-03 17:43:44'),
+(1, 'Herramientas', 'Herramientas para las áreas.', '2023-10-03 17:43:44'),
 (2, 'Insumos', 'Insumos consumibles.', '2023-10-03 17:47:01'),
 (3, 'Materiales', 'Material para las áreas.', '2023-10-03 17:47:26'),
 (4, 'Piezas articulador', 'Piezas de articulador provenientes de maquinado terminadas.', '2023-10-03 17:48:28'),
@@ -81,7 +81,12 @@ CREATE TABLE `historial` (
 --
 
 INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `nota`, `referencia`, `cantidad`) VALUES
-(1, 1, 1, '2023-09-30 05:05:39', 'Obed agregó 5 producto(s) al inventario', 'zxc', 5);
+(1, 1, 1, '2023-09-30 05:05:39', 'Obed agregó 5 producto(s) al inventario', 'zxc', 5),
+(2, 1, 1, '2023-10-04 03:04:36', ' agregó 1 producto(s) al inventario', 'uno', 1),
+(3, 1, 1, '2023-10-04 03:09:25', 'admin agregó 1 producto(s) al inventario', 'uno', 1),
+(13, 19, 1, '2023-10-04 07:36:23', 'admin agregó 55 producto(s) al inventario', 'cfdf', 55),
+(17, 19, 1, '2023-10-04 07:56:45', 'admin agregó 5 producto(s) al inventario', 'cinco', 5),
+(26, 32, 1, '2023-10-04 08:32:02', 'admin agregó 5 producto(s) al inventario', 'zxc', 5);
 
 -- --------------------------------------------------------
 
@@ -140,7 +145,9 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `descripcion`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
-(1, 'AV-002', 'Avellanador', 'medidas', '2023-09-30 05:05:39', 150.00, 6, 'img/avellanador1_4.jpg', 1, 1);
+(1, 'AV-002', 'Avellanador', 'medidas', '2023-09-30 05:05:39', 150.00, 8, 'img/avellanador1_4.jpg', 1, 1),
+(19, 'cfdf', 'sdfsd', 'sdffsd', '2023-10-04 07:36:23', 41.00, 60, 'img/7925f035199f0837a1f3ab429d74d9d5.jpe', 2, 2),
+(32, 'zxc', 'fdg', 'dsfg', '2023-10-04 08:32:02', 71.00, 5, '', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -264,7 +271,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -276,7 +283,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
