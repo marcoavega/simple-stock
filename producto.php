@@ -207,9 +207,7 @@ if (isset($_GET['id'])) {
 											<td>
 												<h4>Fecha</h4>
 											</td>
-											<td>
-												<h4>Hora</h4>
-											</td>
+											
 											<td>
 												<h4>Descripción</h4>
 											</td>
@@ -228,9 +226,7 @@ if (isset($_GET['id'])) {
 												<td>
 													<?php echo date('d/m/Y', strtotime($row['fecha'])); ?>
 												</td>
-												<td>
-													<?php echo date('H:i:s', strtotime($row['fecha'])); ?>
-												</td>
+												
 												<td>
 													<?php echo $row['nota']; ?>
 												</td>
