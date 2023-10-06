@@ -55,6 +55,28 @@
 					</select>			  
 				</div>
 			  </div>
+
+
+			  <div class="form-group">
+				<label for="mod_proveedor" class="col-sm-3 control-label">Proveedor</label>
+				<div class="col-sm-8">
+					<select class='form-control' name='mod_proveedor' id='mod_proveedor' required>
+						<option value="">Selecciona un proveedor</option>
+							<?php 
+							$query_categoria=mysqli_query($con,"select * from proveedores order by nombre_proveedor");
+							while($rw=mysqli_fetch_array($query_categoria))	{
+								?>
+							<option value="<?php echo $rw['id_proveedor'];?>"><?php echo $rw['nombre_proveedor'];?></option>			
+								<?php
+							}
+							?>
+					</select>			  
+				</div>
+			  </div>
+
+
+
+
 			  
 			  <div class="form-group">
 				<label for="mod_precio" class="col-sm-3 control-label">Precio</label>
