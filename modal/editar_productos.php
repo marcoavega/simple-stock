@@ -20,12 +20,24 @@
 					<input type="hidden" name="mod_id" id="mod_id">
 				</div>
 			  </div>
+
 			   <div class="form-group">
 				<label for="mod_nombre" class="col-sm-3 control-label">Nombre</label>
 				<div class="col-sm-8">
 				  <textarea class="form-control" id="mod_nombre" name="mod_nombre" placeholder="Nombre del producto" required></textarea>
 				</div>
 			  </div>
+
+
+
+			  <div class="form-group">
+				<label for="mod_descripcion" class="col-sm-3 control-label">Descripción</label>
+				<div class="col-sm-8">
+				  <textarea class="form-control" id="mod_descripcion" name="mod_descripcion" placeholder="Descripción del producto" required></textarea>
+				</div>
+			  </div>
+
+
 			  
 			  <div class="form-group">
 				<label for="mod_categoria" class="col-sm-3 control-label">Categoría</label>
