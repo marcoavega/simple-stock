@@ -1,15 +1,28 @@
 <?php
 
-	/*-------------------------
-	Autor: Obed Alvarado
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
+	
 	include('is_logged.php');//Archivo verifica que el usario que intenta acceder a la URL esta logueado
 	/* Connect To Database*/
 	require_once ("../config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 	require_once ("../config/conexion.php");//Contiene funcion que conecta a la base de datos
 	
+// Obtener el ID de permisos del usuario actual
+$user_id = $_SESSION['user_id'];
+// Consulta SQL para obtener el ID de permisos del usuario actual
+$sql = "SELECT id_permisos FROM users WHERE user_id = $user_id";
+$result = mysqli_query($con, $sql);
+if ($result && mysqli_num_rows($result) > 0) {
+	$row = mysqli_fetch_assoc($result);
+	$user_id = $row['id_permisos'];
+	// Resto de tu código ...
+} else {
+	// Manejar el caso en el que no se pudo obtener el ID de permisos
+	echo "Error: No se pudo obtener el ID de permisos del usuario.";
+}
+
+
+
+
 	$action = (isset($_REQUEST['action'])&& $_REQUEST['action'] !=NULL)?$_REQUEST['action']:'';
 	if (isset($_GET['id'])){
 		$id_categoria=intval($_GET['id']);
@@ -87,7 +100,11 @@
 					<th style="background-color: #454955; border-color: #000000;">Nombre</th>
 					<th style="background-color: #454955; border-color: #000000;">Descripción</th>
 					<th style="background-color: #454955; border-color: #000000;">Agregado</th>
-					<th class='text-right' style="background-color: #454955; border-color: #000000;">Acciones</th>
+					<?php
+if ($user_id == 1) {
+    echo "<th class='text-right' style='background-color: #454955; border-color: #000000;'>Acciones</th>";
+}
+?>
 					
 				</tr>
 				<?php
@@ -104,10 +121,15 @@
 						<td ><?php echo $descripcion_categoria; ?></td>
 						<td><?php echo $date_added;?></td>
 						
-					<td class='text-right'>
-						<a href="#" class='btn btn-default' title='Editar categoría' data-nombre='<?php echo $nombre_categoria;?>' data-descripcion='<?php echo $descripcion_categoria?>' data-id='<?php echo $id_categoria;?>' data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-edit"></i></a> 
-						<a href="#" class='btn btn-default' title='Borrar categoría' onclick="eliminar('<?php echo $id_categoria; ?>')"><i class="glyphicon glyphicon-trash"></i> </a>
-					</td>
+						<?php
+if ($user_id == 1) {
+    echo "<td class='text-right'>
+        <a href='#' class='btn btn-default' title='Editar categoría' data-nombre='$nombre_categoria' data-descripcion='$descripcion_categoria' data-id='$id_categoria' data-toggle='modal' data-target='#myModal2'><i class='glyphicon glyphicon-edit'></i></a>
+        <a href='#' class='btn btn-default' title='Borrar categoría' onclick=\"eliminar('$id_categoria')\"><i class='glyphicon glyphicon-trash'></i></a>
+    </td>";
+}
+?>
+
 						
 					</tr>
 					<?php

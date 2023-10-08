@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-10-2023 a las 08:34:16
+-- Tiempo de generación: 08-10-2023 a las 20:06:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -84,9 +84,11 @@ INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `not
 (1, 1, 1, '2023-09-30 05:05:39', 'Obed agregó 5 producto(s) al inventario', 'zxc', 5),
 (2, 1, 1, '2023-10-04 03:04:36', ' agregó 1 producto(s) al inventario', 'uno', 1),
 (3, 1, 1, '2023-10-04 03:09:25', 'admin agregó 1 producto(s) al inventario', 'uno', 1),
-(13, 19, 1, '2023-10-04 07:36:23', 'admin agregó 55 producto(s) al inventario', 'cfdf', 55),
-(17, 19, 1, '2023-10-04 07:56:45', 'admin agregó 5 producto(s) al inventario', 'cinco', 5),
-(26, 32, 1, '2023-10-04 08:32:02', 'admin agregó 5 producto(s) al inventario', 'zxc', 5);
+(31, 37, 1, '2023-10-04 08:59:07', 'admin agregó 789 producto(s) al inventario', 'jhjhg', 789),
+(32, 37, 1, '2023-10-05 04:08:34', 'admin agregó 2 producto(s) al inventario', 'dos', 2),
+(33, 37, 1, '2023-10-05 04:27:40', 'admin agregó 2 producto(s) al inventario', 'dos', 2),
+(35, 37, 1, '2023-10-05 04:36:45', 'admin quitó 1 producto(s) del inventario', 'uno', 1),
+(36, 37, 1, '2023-10-05 04:36:55', 'admin agregó 1 producto(s) al inventario', '1', 1);
 
 -- --------------------------------------------------------
 
@@ -146,8 +148,7 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `descripcion`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
 (1, 'AV-002', 'Avellanador', 'medidas', '2023-09-30 05:05:39', 150.00, 8, 'img/avellanador1_4.jpg', 1, 1),
-(19, 'cfdf', 'sdfsd', 'sdffsd', '2023-10-04 07:36:23', 41.00, 60, 'img/7925f035199f0837a1f3ab429d74d9d5.jpe', 2, 2),
-(32, 'zxc', 'fdg', 'dsfg', '2023-10-04 08:32:02', 71.00, 5, '', 1, 2);
+(37, 'jhjhgjk14', 'fdghd14', 'dfghdg14', '2023-10-04 08:59:07', 20.00, 791, 'img/651d0d3bdf058_76046f6aec7b911eca7a55b7b8ffc8679ec143b73530221b606fa1a91d07ff1a.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -187,7 +188,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `id_permisos`, `date_added`) VALUES
-(1, 'admin', '$2y$10$MPVHzZ2ZPOWmtUUGCq3RXu31OTB.jo7M9LZ7PmPQYmgETSNn19ejO', 1, '2016-12-19 15:06:00');
+(1, 'administrador', '$2y$10$UDPSZSDbQ9BP.oi3uAdcYuN/fMguULJ.LrlNexhO1c7M9LFNYl2LO', 1, '2016-12-19 15:06:00'),
+(6, 'usuario', '$2y$10$9PCVb7K/w5IsaApS6g.hTO/Z.guVJ3DipV98LFs0IVQvMydqvz/di', 2, '2023-10-07 09:11:23');
 
 --
 -- Índices para tablas volcadas
@@ -271,7 +273,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -283,13 +285,13 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index', AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

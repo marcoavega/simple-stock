@@ -1,9 +1,5 @@
 <?php
-	/*-------------------------
-	Autor: Obed Alvarado
-	Web: obedalvarado.pw
-	Mail: info@obedalvarado.pw
-	---------------------------*/
+	
 	session_start();
 	if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
         header("location: login.php");
@@ -14,6 +10,23 @@
 	require_once ("config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 	require_once ("config/conexion.php");//Contiene funcion que conecta a la base de datos
 	
+
+// Obtener el ID de permisos del usuario actual
+$user_id = $_SESSION['user_id'];
+// Consulta SQL para obtener el ID de permisos del usuario actual
+$sql = "SELECT id_permisos FROM users WHERE user_id = $user_id";
+$result = mysqli_query($con, $sql);
+if ($result && mysqli_num_rows($result) > 0) {
+	$row = mysqli_fetch_assoc($result);
+	$user_id = $row['id_permisos'];
+	// Resto de tu código ...
+} else {
+	// Manejar el caso en el que no se pudo obtener el ID de permisos
+	echo "Error: No se pudo obtener el ID de permisos del usuario.";
+}
+
+
+
 	$active_categoria="active";
 	$title="Categorías | Borgatta Ingeniería";
 ?>
@@ -31,8 +44,12 @@
 	<div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
 		<div class="panel-heading" style="background-color: #454955; border-color: #000000;">
 		    <div class="btn-group pull-right" style="background-color: #454955; border-color: #000000;">
-				<button type='button' class="btn btn-success" data-toggle="modal" data-target="#nuevoCliente" style="background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;"><span class="glyphicon glyphicon-plus" ></span> Nueva Categoría</button>
-			</div>
+			<?php
+								if ($user_id == 1) {
+									echo "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#nuevoCliente' style='background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;'><span class='glyphicon glyphicon-plus'></span> Nueva Categoría</button>";
+								}
+			?>
+				</div>
 			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i> Buscar Categorías</h4>
 		</div>
 		<div class="panel-body" style="background-color: #7e7f83; border-color: #d9c5b2;">
