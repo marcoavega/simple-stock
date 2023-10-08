@@ -1,0 +1,1 @@
+-- Consulta para convertir un precio en pesos a dólares SELECT p.id_producto, p.nombre_producto, p.precio_producto, -- Utiliza el nombre correcto del campo 'precio_producto' tc.valor AS tipo_de_cambio, (p.precio_producto / tc.valor) AS precio_dolares FROM products AS p JOIN tipo_de_cambio AS tc ON tc.id_moneda_origen = 1 AND tc.id_moneda_destino = 2 WHERE p.id_producto = 1;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2023 a las 20:06:19
+-- Tiempo de generación: 08-10-2023 a las 20:59:16
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -93,6 +93,25 @@ INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `not
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `monedas`
+--
+
+CREATE TABLE `monedas` (
+  `id_moneda` int(11) NOT NULL,
+  `nombre_moneda` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `monedas`
+--
+
+INSERT INTO `monedas` (`id_moneda`, `nombre_moneda`) VALUES
+(1, 'Peso'),
+(2, 'Dólar');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `orden_de_compra`
 --
 
@@ -172,6 +191,27 @@ INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `tipo_de_cambio`
+--
+
+CREATE TABLE `tipo_de_cambio` (
+  `id_tipo_cambio` int(11) NOT NULL,
+  `id_moneda_origen` int(11) NOT NULL,
+  `id_moneda_destino` int(11) NOT NULL,
+  `valor` decimal(10,2) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tipo_de_cambio`
+--
+
+INSERT INTO `tipo_de_cambio` (`id_tipo_cambio`, `id_moneda_origen`, `id_moneda_destino`, `valor`, `fecha`) VALUES
+(1, 1, 2, 18.50, '2023-10-08');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -217,6 +257,12 @@ ALTER TABLE `historial`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indices de la tabla `monedas`
+--
+ALTER TABLE `monedas`
+  ADD PRIMARY KEY (`id_moneda`);
+
+--
 -- Indices de la tabla `orden_de_compra`
 --
 ALTER TABLE `orden_de_compra`
@@ -244,6 +290,14 @@ ALTER TABLE `products`
 --
 ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`id_proveedor`);
+
+--
+-- Indices de la tabla `tipo_de_cambio`
+--
+ALTER TABLE `tipo_de_cambio`
+  ADD PRIMARY KEY (`id_tipo_cambio`),
+  ADD KEY `id_moneda_origen` (`id_moneda_origen`,`id_moneda_destino`),
+  ADD KEY `cambio-moneda2` (`id_moneda_destino`);
 
 --
 -- Indices de la tabla `users`
@@ -276,6 +330,12 @@ ALTER TABLE `historial`
   MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
+-- AUTO_INCREMENT de la tabla `monedas`
+--
+ALTER TABLE `monedas`
+  MODIFY `id_moneda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
 --
 ALTER TABLE `orden_de_compra`
@@ -286,6 +346,12 @@ ALTER TABLE `orden_de_compra`
 --
 ALTER TABLE `products`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT de la tabla `tipo_de_cambio`
+--
+ALTER TABLE `tipo_de_cambio`
+  MODIFY `id_tipo_cambio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -322,6 +388,13 @@ ALTER TABLE `orden_de_compra`
 ALTER TABLE `products`
   ADD CONSTRAINT `productos-categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `productos-provedores` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `tipo_de_cambio`
+--
+ALTER TABLE `tipo_de_cambio`
+  ADD CONSTRAINT `cambio-moneda` FOREIGN KEY (`id_moneda_origen`) REFERENCES `monedas` (`id_moneda`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `cambio-moneda2` FOREIGN KEY (`id_moneda_destino`) REFERENCES `monedas` (`id_moneda`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `users`
