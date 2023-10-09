@@ -44,13 +44,16 @@ if (empty($_POST['codigo'])) {
 } else if ($_POST['stock'] == "") {
     $errors[] = "Stock del producto vacío";
 } else if (empty($_POST['precio'])) {
-    $errors[] = "Precio de venta vacío";
+    $errors[] = "Precio del producto vacío";
+} else if (empty($_POST['preciodolares'])) {
+    $errors[] = "Precio del producto en dólares vacío";
 } else if (
     !empty($_POST['codigo']) &&
     !empty($_POST['nombre']) &&
     !empty($_POST['descripcion']) &&
     $_POST['stock'] != "" &&
-    !empty($_POST['precio'])
+    !empty($_POST['precio'])&&
+    !empty($_POST['preciodolares'])
 ) {
     /* Connect To Database */
     require_once("../config/db.php"); // Contiene las variables de configuración para conectar a la base de datos
@@ -65,10 +68,11 @@ if (empty($_POST['codigo'])) {
     $id_categoria = intval($_POST['categoria']);
     $id_proveedor = intval($_POST['proveedor']);
     $precio_venta = floatval($_POST['precio']);
+    $precio_venta_dolares = floatval($_POST['preciodolares']);
     $date_added = date("Y-m-d H:i:s");
     
     // Luego, en la consulta SQL, puedes usar $file_name para almacenar la URL de la imagen en la base de datos
-$sql = "INSERT INTO products (codigo_producto, nombre_producto, descripcion, date_added, precio_producto, stock, id_categoria, id_proveedor, url_imagen) VALUES ('$codigo','$nombre','$descripcion','$date_added','$precio_venta', '$stock','$id_categoria','$id_proveedor', '$file_name')";
+$sql = "INSERT INTO products (codigo_producto, nombre_producto, descripcion, date_added, precio_producto, precio_producto_dolares, stock, id_categoria, id_proveedor, url_imagen) VALUES ('$codigo','$nombre','$descripcion','$date_added','$precio_venta','$precio_venta_dolares','$stock','$id_categoria','$id_proveedor', '$file_name')";
     $query_new_insert = mysqli_query($con, $sql);
     
     if ($query_new_insert) {

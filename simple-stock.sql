@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2023 a las 20:59:16
+-- Tiempo de generación: 09-10-2023 a las 05:08:40
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.0.28
 
@@ -83,31 +83,7 @@ CREATE TABLE `historial` (
 INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `nota`, `referencia`, `cantidad`) VALUES
 (1, 1, 1, '2023-09-30 05:05:39', 'Obed agregó 5 producto(s) al inventario', 'zxc', 5),
 (2, 1, 1, '2023-10-04 03:04:36', ' agregó 1 producto(s) al inventario', 'uno', 1),
-(3, 1, 1, '2023-10-04 03:09:25', 'admin agregó 1 producto(s) al inventario', 'uno', 1),
-(31, 37, 1, '2023-10-04 08:59:07', 'admin agregó 789 producto(s) al inventario', 'jhjhg', 789),
-(32, 37, 1, '2023-10-05 04:08:34', 'admin agregó 2 producto(s) al inventario', 'dos', 2),
-(33, 37, 1, '2023-10-05 04:27:40', 'admin agregó 2 producto(s) al inventario', 'dos', 2),
-(35, 37, 1, '2023-10-05 04:36:45', 'admin quitó 1 producto(s) del inventario', 'uno', 1),
-(36, 37, 1, '2023-10-05 04:36:55', 'admin agregó 1 producto(s) al inventario', '1', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `monedas`
---
-
-CREATE TABLE `monedas` (
-  `id_moneda` int(11) NOT NULL,
-  `nombre_moneda` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `monedas`
---
-
-INSERT INTO `monedas` (`id_moneda`, `nombre_moneda`) VALUES
-(1, 'Peso'),
-(2, 'Dólar');
+(3, 1, 1, '2023-10-04 03:09:25', 'admin agregó 1 producto(s) al inventario', 'uno', 1);
 
 -- --------------------------------------------------------
 
@@ -155,6 +131,7 @@ CREATE TABLE `products` (
   `descripcion` text NOT NULL,
   `date_added` datetime NOT NULL,
   `precio_producto` double(11,2) NOT NULL,
+  `precio_producto_dolares` decimal(11,2) NOT NULL,
   `stock` int(11) NOT NULL,
   `url_imagen` varchar(100) NOT NULL,
   `id_categoria` int(11) NOT NULL,
@@ -165,9 +142,8 @@ CREATE TABLE `products` (
 -- Volcado de datos para la tabla `products`
 --
 
-INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `descripcion`, `date_added`, `precio_producto`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
-(1, 'AV-002', 'Avellanador', 'medidas', '2023-09-30 05:05:39', 150.00, 8, 'img/avellanador1_4.jpg', 1, 1),
-(37, 'jhjhgjk14', 'fdghd14', 'dfghdg14', '2023-10-04 08:59:07', 20.00, 791, 'img/651d0d3bdf058_76046f6aec7b911eca7a55b7b8ffc8679ec143b73530221b606fa1a91d07ff1a.jpg', 1, 2);
+INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `descripcion`, `date_added`, `precio_producto`, `precio_producto_dolares`, `stock`, `url_imagen`, `id_categoria`, `id_proveedor`) VALUES
+(1, 'AV-002', 'Avellanador', 'medidas', '2023-09-30 05:05:39', 150.00, 0.00, 8, 'img/avellanador1_4.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -187,27 +163,6 @@ CREATE TABLE `proveedores` (
 INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`) VALUES
 (1, 'MAPI'),
 (2, 'HIGHER-TOOLS');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipo_de_cambio`
---
-
-CREATE TABLE `tipo_de_cambio` (
-  `id_tipo_cambio` int(11) NOT NULL,
-  `id_moneda_origen` int(11) NOT NULL,
-  `id_moneda_destino` int(11) NOT NULL,
-  `valor` decimal(10,2) NOT NULL,
-  `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `tipo_de_cambio`
---
-
-INSERT INTO `tipo_de_cambio` (`id_tipo_cambio`, `id_moneda_origen`, `id_moneda_destino`, `valor`, `fecha`) VALUES
-(1, 1, 2, 18.50, '2023-10-08');
 
 -- --------------------------------------------------------
 
@@ -257,12 +212,6 @@ ALTER TABLE `historial`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indices de la tabla `monedas`
---
-ALTER TABLE `monedas`
-  ADD PRIMARY KEY (`id_moneda`);
-
---
 -- Indices de la tabla `orden_de_compra`
 --
 ALTER TABLE `orden_de_compra`
@@ -292,14 +241,6 @@ ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`id_proveedor`);
 
 --
--- Indices de la tabla `tipo_de_cambio`
---
-ALTER TABLE `tipo_de_cambio`
-  ADD PRIMARY KEY (`id_tipo_cambio`),
-  ADD KEY `id_moneda_origen` (`id_moneda_origen`,`id_moneda_destino`),
-  ADD KEY `cambio-moneda2` (`id_moneda_destino`);
-
---
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -327,13 +268,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
---
--- AUTO_INCREMENT de la tabla `monedas`
---
-ALTER TABLE `monedas`
-  MODIFY `id_moneda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -345,13 +280,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
-
---
--- AUTO_INCREMENT de la tabla `tipo_de_cambio`
---
-ALTER TABLE `tipo_de_cambio`
-  MODIFY `id_tipo_cambio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
@@ -388,13 +317,6 @@ ALTER TABLE `orden_de_compra`
 ALTER TABLE `products`
   ADD CONSTRAINT `productos-categorias` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `productos-provedores` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedores` (`id_proveedor`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tipo_de_cambio`
---
-ALTER TABLE `tipo_de_cambio`
-  ADD CONSTRAINT `cambio-moneda` FOREIGN KEY (`id_moneda_origen`) REFERENCES `monedas` (`id_moneda`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `cambio-moneda2` FOREIGN KEY (`id_moneda_destino`) REFERENCES `monedas` (`id_moneda`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `users`

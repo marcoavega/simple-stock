@@ -81,6 +81,7 @@ if (isset($_GET['id'])) {
 	<?php include("head.php"); ?>
 </head>
 
+
 <body style="background-color: #000000;">
 	<?php
 	include("navbar.php");
@@ -103,7 +104,7 @@ if (isset($_GET['id'])) {
 								<?php
 								if ($user_id == 1) {
 									echo '<a href="#" class="btn btn-danger" onclick="eliminar(' . $row['id_producto'] . ')" title="Eliminar"> <i class="glyphicon glyphicon-trash"></i> Eliminar </a>';
-									echo '<a href="#myModal2" data-toggle="modal" data-codigo=' . $row['codigo_producto'] . ' data-nombre=' . $row['nombre_producto'] . ' data-categoria=' . $row['id_categoria'] . ' data-precio=' . $row['precio_producto'] . ' data-stock=' . $row['stock'] . ' data-id=' . $row['id_producto'] . ' class="btn btn-info" title="Editar"> <i class="glyphicon glyphicon-pencil"></i> Editar </a>';
+									echo '<a href="#myModal2" data-toggle="modal" data-codigo=' . $row['codigo_producto'] . ' data-nombre=' . $row['nombre_producto'] . ' data-categoria=' . $row['id_categoria'] . ' data-precio=' . $row['precio_producto'] . ' data-preciodolares=' . $row['precio_producto_dolares'] . ' data-stock=' . $row['stock'] . ' data-id=' . $row['id_producto'] . ' class="btn btn-info" title="Editar"> <i class="glyphicon glyphicon-pencil"></i> Editar </a>';
 								}
 								?>
 
@@ -146,24 +147,61 @@ if (isset($_GET['id'])) {
 
 									<div class="col-sm-12 margin-btm-10">
 									</div>
-									<?php			if ($user_id == 1) {
-    // Mostrar los elementos solo si el user_id tiene permisos (igual a 1)
-    echo '<div class="col-sm-6 col-xs-6 col-md-4"
-            style="border: 5px solid #007ea7; background-color: #FFFFFF; border-radius: 5px;">
-            <a href="" data-toggle="modal" data-target="#add-stock"><img width="100px" src="img/stock-in.png"></a>
-          </div>';
 
-    echo '<div class="col-sm-6 col-xs-6 col-md-4"
-            style="border: 5px solid #bf211e; background-color: #FFFFFF; border-radius: 5px;">
-            <a href="" data-toggle="modal" data-target="#remove-stock"><img width="100px" src="img/stock-out.png"></a>
-          </div>';
-}
-?>
-									<div class="col-sm-6 col-xs-6 col-md-4"
-										style="border: 5px solid #8eb897; background-color: #FFFFFF; border-radius: 5px;">
-										<a href="/simple-stock/stock.php" data-toggle="modal"><img width="100px"
-												src="img/retorno.png"></a>
-									</div>
+									<div class="row">
+    <?php if ($user_id == 1) { ?>
+        <div class="col-md-4">
+            <a href="" data-toggle="modal" data-target="#add-stock">
+                <button class="btn btn-primary btn-block custom-btn">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="btn-text">Agregar</span>
+                </button>
+            </a>
+        </div>
+
+        <div class="col-md-4">
+            <a href="" data-toggle="modal" data-target="#remove-stock">
+                <button class="btn btn-danger btn-block custom-btn">
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <span class="btn-text">Quitar</span>
+                </button>
+            </a>
+        </div>
+    <?php } ?>
+
+    <div class="col-md-4">
+        <li class="<?php if (isset($active_productos)) {
+            echo $active_productos;
+        } ?>" style="list-style: none; margin: 0; padding: 0;">
+            <form action="stock.php" method="get">
+                <button type="submit" class="btn btn-success btn-block custom-btn">
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    <span class="btn-text">Regresar</span>
+                </button>
+            </form>
+        </li>
+    </div>
+</div>
+
+<style>
+	.btn-text {
+        font-size: 14px;
+        white-space: normal;
+        text-align: center;
+        margin-left: 5px;
+        text-decoration: none; /* Quita el subrayado del texto */
+    }
+
+    .btn-text:hover {
+        text-decoration: none; /* Quita el subrayado en el estado hover */
+    }
+	a{
+		text-decoration: none; /* Quita el subrayado en el estado hover */
+	}
+</style>
+
+
+
 									<div class="col-sm-12 margin-btm-10">
 									</div>
 								</div>
@@ -207,7 +245,7 @@ if (isset($_GET['id'])) {
 											<td>
 												<h4>Fecha</h4>
 											</td>
-											
+
 											<td>
 												<h4>Descripción</h4>
 											</td>
@@ -226,7 +264,7 @@ if (isset($_GET['id'])) {
 												<td>
 													<?php echo date('d/m/Y', strtotime($row['fecha'])); ?>
 												</td>
-												
+
 												<td>
 													<?php echo $row['nota']; ?>
 												</td>
@@ -243,7 +281,6 @@ if (isset($_GET['id'])) {
 									</table>
 								</div>
 
-
 							</div>
 						</div>
 					</div>
@@ -251,10 +288,7 @@ if (isset($_GET['id'])) {
 			</div>
 		</div>
 
-
-
 	</div>
-
 
 	<?php
 	include("footer.php");
@@ -297,6 +331,7 @@ if (isset($_GET['id'])) {
 		var categoria = button.data('categoria')
 		var proveedor = button.data('proveedor')
 		var precio = button.data('precio')
+		var preciodolares = button.data('preciodolares')
 		var stock = button.data('stock')
 		var url_imagen = button.data('url_imagen')
 		var id = button.data('id')
@@ -307,6 +342,7 @@ if (isset($_GET['id'])) {
 		modal.find('.modal-body #mod_categoria').val(categoria)
 		modal.find('.modal-body #mod_proveedor').val(proveedor)
 		modal.find('.modal-body #mod_precio').val(precio)
+		modal.find('.modal-body #mod_preciodolares').val(preciodolares)
 		modal.find('.modal-body #mod_stock').val(stock)
 		modal.find('.modal-body #mod_url_imagen').val(url_imagen)
 		modal.find('.modal-body #mod_id').val(id)
