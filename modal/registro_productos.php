@@ -128,6 +128,27 @@ if (isset($con)) {
 			</div>
 		</div>
 	</div>
+
+
+    <!-- Agrega este script JavaScript al final de tu código PHP -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtiene una referencia al formulario
+            var formulario = document.getElementById('guardar_producto');
+
+            // Agrega un manejador de eventos para el envío del formulario
+            formulario.addEventListener('submit', function(e) {
+                e.preventDefault(); // Evita el envío predeterminado del formulario
+
+                // Realiza aquí tu lógica para enviar los datos, por ejemplo, mediante AJAX
+
+                // Limpia el formulario
+                formulario.reset();
+            });
+        });
+    </script>
+
+
 	<?php
 }
 ?>

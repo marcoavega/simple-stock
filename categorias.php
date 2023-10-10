@@ -41,12 +41,12 @@ if ($result && mysqli_num_rows($result) > 0) {
 	?>
 	
     <div class="container">
-	<div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
+	<div class="panel" style="border-color: #000000; border-radius: 10px;">
 		<div class="panel-heading" style="background-color: #454955; border-color: #000000;">
 		    <div class="btn-group pull-right" style="background-color: #454955; border-color: #000000;">
 			<?php
 								if ($user_id == 1) {
-									echo "<button type='button' class='btn btn-success' data-toggle='modal' data-target='#nuevoCliente' style='background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;'><span class='glyphicon glyphicon-plus'></span> Nueva Categoría</button>";
+									echo "<button type='button' class='btn btn-info' data-toggle='modal' data-target='#nuevoCliente'><span class='glyphicon glyphicon-plus'></span> Nueva Categoría</button>";
 								}
 			?>
 				</div>

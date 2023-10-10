@@ -42,13 +42,13 @@ $title = "Inventario | Borgatta Ingeniería";
 
 	<div class="container">
 
-		<div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
+		<div class="panel" style="border-color: #000000; border-radius: 10px;">
 			<div class="panel-heading" style="background-color: #454955; border-color: #000000;">
 				<?php
 				// Supongamos que el user_id 1 tiene permisos para ver el botón de agregar
 				if ($user_id == 1) {
 					echo '<div class="btn-group pull-right" style="background-color: #454955; border-color: #000000;">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#nuevoProducto" style="background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#nuevoProducto" >
                 <span class="glyphicon glyphicon-plus"></span> Agregar
             </button>
           </div>';

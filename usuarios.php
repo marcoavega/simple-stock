@@ -36,14 +36,13 @@ include("navbar.php");
 ?>
 <div class="container">
     <?php if ($user_id == 1) : ?>
-        <div class="panel panel-success" style="border-color: #000000; border-radius: 10px;">
+        <div class="panel" style="border-color: #000000; border-radius: 10px;">
             <div class="panel-heading"
                  style="background-color: #454955; border-color: #000000;">
                 <div class="btn-group pull-right"
                      style="background-color: #454955; border-color: #000000;">
-                    <button type='button' class="btn btn-success" data-toggle="modal"
-                            data-target="#myModal"
-                            style="background-color: #f3f3f4; cursor: pointer; color: #000000; border-color: #000000;"><span
+                    <button type='button' class="btn btn-info" data-toggle="modal"
+                            data-target="#myModal"><span
                                 class="glyphicon glyphicon-plus"></span> Nuevo Usuario
                     </button>
                 </div>

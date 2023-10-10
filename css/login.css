@@ -1,3 +1,4 @@
+
 h2   {color:white}
 p    {color:white}
 
@@ -131,5 +132,5 @@ body, html {
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
-    color: rgb(12, 97, 33);
+    color: rgb(0, 0, 0);
 }
