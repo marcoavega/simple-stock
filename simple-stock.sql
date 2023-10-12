@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 00:33:48
+-- Tiempo de generación: 13-10-2023 a las 00:52:41
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -44,7 +44,8 @@ INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categ
 (3, 'Materiales', 'Material para las áreas.', '2023-10-03 17:47:26'),
 (4, 'Piezas articulador', 'Piezas de articulador provenientes de maquinado terminadas.', '2023-10-03 17:48:28'),
 (5, 'Producto terminado.', 'Articulo completo.', '2023-10-03 17:49:17'),
-(6, 'Papelería', 'Insumos de papelería.', '2023-10-03 17:49:52');
+(6, 'Papelería', 'Insumos de papelería.', '2023-10-03 17:49:52'),
+(7, 'Materia prima maquinado articulador', 'Materiales utilizados en el área de maquinado.', '2023-10-12 18:31:04');
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,8 @@ INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `not
 (38, 87, 1, '2023-10-10 00:47:59', 'administrador agregó 5 producto(s) al inventario', 'H-0035', 5),
 (39, 88, 1, '2023-10-10 00:49:01', 'administrador agregó 5 producto(s) al inventario', 'H-0036', 5),
 (40, 89, 1, '2023-10-10 00:50:15', 'administrador agregó 10 producto(s) al inventario', 'H-0037', 10),
-(41, 91, 1, '2023-10-10 00:52:52', 'administrador agregó 4 producto(s) al inventario', 'H-0038', 4);
+(41, 91, 1, '2023-10-10 00:52:52', 'administrador agregó 4 producto(s) al inventario', 'H-0038', 4),
+(42, 130, 1, '2023-10-12 19:39:07', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Jonathan.', 1);
 
 -- --------------------------------------------------------
 
@@ -254,7 +256,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (127, 'H-0072', 'Pistola de silicón', 'Grande', '2023-10-10 19:45:02', 1.00, 1.00, 1, 'img/65258d9f1b792_IMG_20231010_113034_246.jpg', 1, 2),
 (128, 'I-0001', 'Barras de silicón', '1/2\"', '2023-10-10 19:46:26', 1.00, 1.00, 34, 'img/65258df2a32fc_IMG_20231010_113138_143.jpg', 2, 2),
 (129, 'I-0002', 'Lentes  de seguridad FOY', 'Ambar', '2023-10-10 19:47:46', 1.00, 1.00, 16, 'img/65258e42dfb13_IMG_20231010_113233_881.jpg', 2, 2),
-(130, 'I-0003', 'Lentes de seguridad PRETUL', 'Transparentes', '2023-10-10 19:49:17', 1.00, 1.00, 3, 'img/65258e9d97d1d_IMG_20231010_113315_252.jpg', 2, 2),
+(130, 'I-0003', 'Lentes de seguridad PRETUL', 'Transparentes', '2023-10-10 19:49:17', 1.00, 1.00, 2, 'img/65258e9d97d1d_IMG_20231010_113315_252.jpg', 2, 2),
 (131, 'I-0004', 'Lentes de seguridad FOY', 'Transparentes', '2023-10-10 19:53:49', 1.00, 1.00, 1, 'img/65258faddecd5_IMG_20231010_113429_054.jpg', 2, 2),
 (132, 'I-0005', 'Plasti acero', '25 ml', '2023-10-10 20:00:31', 1.00, 1.00, 1, 'img/6525913f69a16_IMG_20231010_113453_281.jpg', 2, 2),
 (133, 'I-0006', 'Cinta sella roscas', '1/2\" X 7 m', '2023-10-10 20:03:55', 1.00, 1.00, 10, 'img/6525920b640f5_IMG_20231010_113514_174.jpg', 2, 2),
@@ -314,7 +316,15 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (199, 'H-0105', 'Desarmador', 'Plano', '2023-10-11 00:18:15', 1.00, 1.00, 1, 'img/6525cda71bafc_IMG_20231010_152722_888.jpg', 1, 2),
 (200, 'H-0106', 'Punzón para barrenar', '3/8\"', '2023-10-11 00:26:36', 1.00, 1.00, 2, 'img/6525cf9cb1b93_IMG_20231010_152809_144.jpg', 1, 2),
 (201, 'H-0107', 'Punzón', '5/16\" X 1/8\"', '2023-10-11 00:27:28', 1.00, 1.00, 3, 'img/6525cfd0b2658_IMG_20231010_152923_737.jpg', 1, 2),
-(202, 'H-0108', 'Destornillador de caja', '7 mm', '2023-10-11 00:29:20', 1.00, 1.00, 1, 'img/6525d0405cc72_IMG_20231010_152942_826.jpg', 1, 2);
+(202, 'H-0108', 'Destornillador de caja', '7 mm', '2023-10-11 00:29:20', 1.00, 1.00, 1, 'img/6525d0405cc72_IMG_20231010_152942_826.jpg', 1, 2),
+(203, 'H-0109', 'llave ajustable', '6\" marca: FOY', '2023-10-13 00:35:39', 1.00, 1.00, 1, 'img/652874bb6fa72_IMG_20231010_154434_712.jpg', 1, 2),
+(204, 'H-0110', 'Llave de presión', '10\"', '2023-10-13 00:37:15', 1.00, 1.00, 1, 'img/6528751b2fbb0_IMG_20231010_154521_868.jpg', 1, 2),
+(205, 'H-0111', 'pinzas para anillos de retención.', 'desde 65mm hasta 12mm', '2023-10-13 00:39:04', 1.00, 1.00, 1, 'img/6528758810807_IMG_20231010_154539_966.jpg', 1, 2),
+(206, 'H-0112', 'Pinzas de presión', 'Tipo prensa', '2023-10-13 00:41:10', 1.00, 1.00, 1, 'img/65287606afac3_IMG_20231010_154605_145.jpg', 1, 2),
+(208, 'H-0113', 'pinzas de punta', 'medianas', '2023-10-13 00:43:52', 1.00, 1.00, 1, 'img/652876a891028_IMG_20231010_154616_619.jpg', 1, 2),
+(209, 'H-0114', 'Pinzas para anillo de retención', 'de 90grados', '2023-10-13 00:45:16', 1.00, 1.00, 1, 'img/652876fc979d2_IMG_20231010_154629_828.jpg', 1, 2),
+(210, 'H-0115', 'Matraca', '3/8\"', '2023-10-13 00:46:51', 1.00, 1.00, 1, 'img/6528775b9ea45_IMG_20231010_154639_333.jpg', 1, 2),
+(211, 'H-0116', 'juego de llaves Allen tipo navaja', 'estándar', '2023-10-13 00:50:00', 1.00, 1.00, 1, 'img/6528781895bd7_IMG_20231010_154720_527.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -427,7 +437,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_ordenes_de_compra`
@@ -439,7 +449,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -451,7 +461,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
