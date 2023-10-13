@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2023 a las 00:52:41
+-- Tiempo de generación: 14-10-2023 a las 00:26:52
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,10 +42,12 @@ INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categ
 (1, 'Herramientas', 'Herramientas para las áreas.', '2023-10-03 17:43:44'),
 (2, 'Insumos', 'Insumos consumibles.', '2023-10-03 17:47:01'),
 (3, 'Materiales', 'Material para las áreas.', '2023-10-03 17:47:26'),
-(4, 'Piezas articulador', 'Piezas de articulador provenientes de maquinado terminadas.', '2023-10-03 17:48:28'),
-(5, 'Producto terminado.', 'Articulo completo.', '2023-10-03 17:49:17'),
+(4, 'Piezas articulador sin pintar', 'Piezas de articulador provenientes de maquinado terminadas sin pintar.', '2023-10-03 17:48:28'),
+(5, 'Articulador CPI', 'Articulador completo.', '2023-10-03 17:49:17'),
 (6, 'Papelería', 'Insumos de papelería.', '2023-10-03 17:49:52'),
-(7, 'Materia prima maquinado articulador', 'Materiales utilizados en el área de maquinado.', '2023-10-12 18:31:04');
+(7, 'Materia prima maquinado articulador', 'Materiales utilizados en el área de maquinado.', '2023-10-12 18:31:04'),
+(8, 'Piezas articulador pintadas.', 'Piezas de articulador pintadas.', '2023-10-13 22:38:14'),
+(9, 'Articulador Análogo', 'Articulador Análogo completo.', '2023-10-13 22:40:01');
 
 -- --------------------------------------------------------
 
@@ -324,7 +326,9 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (208, 'H-0113', 'pinzas de punta', 'medianas', '2023-10-13 00:43:52', 1.00, 1.00, 1, 'img/652876a891028_IMG_20231010_154616_619.jpg', 1, 2),
 (209, 'H-0114', 'Pinzas para anillo de retención', 'de 90grados', '2023-10-13 00:45:16', 1.00, 1.00, 1, 'img/652876fc979d2_IMG_20231010_154629_828.jpg', 1, 2),
 (210, 'H-0115', 'Matraca', '3/8\"', '2023-10-13 00:46:51', 1.00, 1.00, 1, 'img/6528775b9ea45_IMG_20231010_154639_333.jpg', 1, 2),
-(211, 'H-0116', 'juego de llaves Allen tipo navaja', 'estándar', '2023-10-13 00:50:00', 1.00, 1.00, 1, 'img/6528781895bd7_IMG_20231010_154720_527.jpg', 1, 2);
+(211, 'H-0116', 'juego de llaves Allen tipo navaja', 'estándar', '2023-10-13 00:50:00', 1.00, 1.00, 1, 'img/6528781895bd7_IMG_20231010_154720_527.jpg', 1, 2),
+(212, 'H-0117', 'llave combinada.', '3/8\" X 16cm', '2023-10-13 22:46:54', 1.00, 1.00, 2, 'img/6529acbf18aa1_IMG_20231010_154821_267.jpg', 1, 2),
+(213, 'H-0118', 'Llave combinada', '9/16\"', '2023-10-13 23:40:10', 1.00, 1.00, 1, 'img/6529b93ac3c8c_IMG_20231010_155051_770.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -437,7 +441,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_ordenes_de_compra`
@@ -461,7 +465,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

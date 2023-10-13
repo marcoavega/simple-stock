@@ -83,7 +83,7 @@ if ($login->isUserLoggedIn() == true) {
 								}
 								?>
 							</div>
-						<?php
+							<?php
 						}
 					}
 					?>
