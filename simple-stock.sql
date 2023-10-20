@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2023 a las 00:26:52
+-- Tiempo de generación: 20-10-2023 a las 23:47:11
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -84,47 +84,9 @@ CREATE TABLE `historial` (
 --
 
 INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `nota`, `referencia`, `cantidad`) VALUES
-(1, 1, 1, '2023-10-09 21:44:46', 'administrador quitó 2 producto(s) del inventario', 'Ajuste de inventario.', 2),
-(3, 44, 1, '2023-10-09 21:52:29', 'administrador agregó 1 producto(s) al inventario', 'H-0002', 1),
-(4, 45, 1, '2023-10-09 22:11:10', 'administrador agregó 1 producto(s) al inventario', 'H-0003', 1),
-(5, 45, 1, '2023-10-09 22:11:45', 'administrador agregó 1 producto(s) al inventario', 'Ajuste de inventario', 1),
-(6, 47, 1, '2023-10-09 22:15:34', 'administrador agregó 1 producto(s) al inventario', 'H-0004', 1),
-(7, 48, 1, '2023-10-09 22:17:29', 'administrador agregó 2 producto(s) al inventario', 'H-0005', 2),
-(8, 49, 1, '2023-10-09 22:19:07', 'administrador agregó 2 producto(s) al inventario', 'H-0006', 2),
-(9, 50, 1, '2023-10-09 22:20:17', 'administrador agregó 10 producto(s) al inventario', 'H-0007', 10),
-(10, 51, 1, '2023-10-09 22:24:12', 'administrador agregó 2 producto(s) al inventario', 'H-0008', 2),
-(11, 53, 1, '2023-10-09 22:25:33', 'administrador agregó 2 producto(s) al inventario', 'H-0009', 2),
-(12, 54, 1, '2023-10-09 22:27:10', 'administrador agregó 4 producto(s) al inventario', 'H-0010', 4),
-(13, 55, 1, '2023-10-09 23:11:39', 'administrador agregó 1 producto(s) al inventario', 'H-0011', 1),
-(14, 56, 1, '2023-10-09 23:17:36', 'administrador agregó 1 producto(s) al inventario', 'H-0012', 1),
-(15, 57, 1, '2023-10-09 23:18:58', 'administrador agregó 1 producto(s) al inventario', 'H-0013', 1),
-(16, 58, 1, '2023-10-09 23:20:24', 'administrador agregó 1 producto(s) al inventario', 'H-0014', 1),
-(17, 59, 1, '2023-10-09 23:46:06', 'administrador agregó 2 producto(s) al inventario', 'H-0015', 2),
-(18, 60, 1, '2023-10-09 23:51:26', 'administrador agregó 4 producto(s) al inventario', 'H-0016', 4),
-(19, 61, 1, '2023-10-09 23:54:14', 'administrador agregó 4 producto(s) al inventario', 'H-0017', 4),
-(20, 63, 1, '2023-10-09 23:57:57', 'administrador agregó 4 producto(s) al inventario', 'H-0018', 4),
-(21, 64, 1, '2023-10-10 00:04:28', 'administrador agregó 9 producto(s) al inventario', 'H-0019', 9),
-(22, 63, 1, '2023-10-10 00:04:53', 'administrador agregó 7 producto(s) al inventario', 'Ajuste de inventario', 7),
-(23, 65, 1, '2023-10-10 00:09:14', 'administrador agregó 2 producto(s) al inventario', 'H-0020', 2),
-(24, 67, 1, '2023-10-10 00:11:18', 'administrador agregó 2 producto(s) al inventario', 'H-0021', 2),
-(25, 70, 1, '2023-10-10 00:15:18', 'administrador agregó 2 producto(s) al inventario', 'H-0022', 2),
-(26, 71, 1, '2023-10-10 00:16:38', 'administrador agregó 3 producto(s) al inventario', 'H-0023', 3),
-(27, 72, 1, '2023-10-10 00:18:39', 'administrador agregó 3 producto(s) al inventario', 'H-0024', 3),
-(28, 74, 1, '2023-10-10 00:20:51', 'administrador agregó 5 producto(s) al inventario', 'H-0025', 5),
-(29, 75, 1, '2023-10-10 00:32:26', 'administrador agregó 0 producto(s) al inventario', 'H-0026', 0),
-(30, 76, 1, '2023-10-10 00:32:47', 'administrador agregó 0 producto(s) al inventario', 'H-0027', 0),
-(31, 77, 1, '2023-10-10 00:33:08', 'administrador agregó 0 producto(s) al inventario', 'H-0028', 0),
-(32, 80, 1, '2023-10-10 00:34:02', 'administrador agregó 0 producto(s) al inventario', 'H-0029', 0),
-(33, 81, 1, '2023-10-10 00:34:52', 'administrador agregó 0 producto(s) al inventario', 'H-0030', 0),
-(34, 82, 1, '2023-10-10 00:38:38', 'administrador agregó 20 producto(s) al inventario', 'H-0031', 20),
-(35, 83, 1, '2023-10-10 00:40:18', 'administrador agregó 15 producto(s) al inventario', 'H-0032', 15),
-(36, 84, 1, '2023-10-10 00:41:20', 'administrador agregó 9 producto(s) al inventario', 'H-0033', 9),
-(37, 86, 1, '2023-10-10 00:42:36', 'administrador agregó 10 producto(s) al inventario', 'H-0034', 10),
-(38, 87, 1, '2023-10-10 00:47:59', 'administrador agregó 5 producto(s) al inventario', 'H-0035', 5),
-(39, 88, 1, '2023-10-10 00:49:01', 'administrador agregó 5 producto(s) al inventario', 'H-0036', 5),
-(40, 89, 1, '2023-10-10 00:50:15', 'administrador agregó 10 producto(s) al inventario', 'H-0037', 10),
-(41, 91, 1, '2023-10-10 00:52:52', 'administrador agregó 4 producto(s) al inventario', 'H-0038', 4),
-(42, 130, 1, '2023-10-12 19:39:07', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Jonathan.', 1);
+(42, 130, 1, '2023-10-12 19:39:07', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Jonathan.', 1),
+(43, 137, 1, '2023-10-19 21:04:40', 'administrador quitó 1 producto(s) del inventario', 'Alejandro hdz. solicito 1 pza.', 1),
+(44, 101, 1, '2023-10-20 18:18:17', 'administrador quitó 1 producto(s) del inventario', 'pidió Abraham 1 pza', 1);
 
 -- --------------------------------------------------------
 
@@ -231,7 +193,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (98, 'H-0045', 'Broca para concreto', '3/8\" (10)', '2023-10-10 18:22:00', 1.00, 1.00, 1, 'img/65257a28469e7_IMG_20231010_100557_681.jpg', 1, 2),
 (99, 'H-0046', 'Broca para metal', '9/16\"', '2023-10-10 18:29:41', 1.00, 1.00, 1, 'img/65257bf5b93cc_IMG_20231010_102027_731.jpg', 1, 2),
 (100, 'H-0047', 'Broca para metal', '31/64\"', '2023-10-10 18:30:54', 1.00, 1.00, 1, 'img/65257c3e19dfe_IMG_20231010_102050_437.jpg', 1, 2),
-(101, 'H-0048', 'Broca para metal', '7/16\"', '2023-10-10 18:33:02', 1.00, 1.00, 5, 'img/65257cbf1b672_IMG_20231010_102116_322.jpg', 1, 2),
+(101, 'H-0048', 'Broca para metal', '7/16\"', '2023-10-10 18:33:02', 1.00, 1.00, 4, 'img/65257cbf1b672_IMG_20231010_102116_322.jpg', 1, 2),
 (102, 'H-0049', 'Broca para metal CLEVELAND', '1/8\" ', '2023-10-10 18:34:44', 1.00, 1.00, 15, 'img/65257d245682b_IMG_20231010_102147_476.jpg', 1, 2),
 (103, 'H-0050', 'Broca para metal', '2.50 MM 0.0984\"', '2023-10-10 18:35:56', 1.00, 1.00, 5, 'img/65257d6c28af3_IMG_20231010_102225_747.jpg', 1, 2),
 (104, 'H-0051', 'Broca para metal', '15/64\"', '2023-10-10 18:37:06', 1.00, 1.00, 5, 'img/65257db2b948b_IMG_20231010_102246_630.jpg', 1, 2),
@@ -264,7 +226,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (133, 'I-0006', 'Cinta sella roscas', '1/2\" X 7 m', '2023-10-10 20:03:55', 1.00, 1.00, 10, 'img/6525920b640f5_IMG_20231010_113514_174.jpg', 2, 2),
 (134, 'I-0007', 'Disco de lija', 'Grano 120 fino 5\"', '2023-10-10 20:09:02', 1.00, 1.00, 13, 'img/6525933e1bb8b_IMG_20231010_113546_500.jpg', 2, 2),
 (136, 'I-0008', 'Disco de lija', 'Grano 80 medio 5\"', '2023-10-10 20:11:36', 1.00, 1.00, 11, 'img/652593d8eea6c_IMG_20231010_113617_638.jpg', 2, 2),
-(137, 'I-0009', 'Cinta de montaje doble cara', '19 mm X 5 m', '2023-10-10 20:13:24', 1.00, 1.00, 5, 'img/6525944472efc_IMG_20231010_113631_678.jpg', 2, 2),
+(137, 'I-0009', 'Cinta de montaje doble cara', '19 mm X 5 m', '2023-10-10 20:13:24', 1.00, 1.00, 4, 'img/6525944472efc_IMG_20231010_113631_678.jpg', 2, 2),
 (138, 'I-0010', 'Cinta masking', '18 mm X 50 m', '2023-10-10 20:14:34', 1.00, 1.00, 1, 'img/6525948a58bdf_IMG_20231010_113650_761.jpg', 2, 2),
 (139, 'I-0011', 'Pistola de silicón', 'Chica', '2023-10-10 20:15:30', 1.00, 1.00, 1, 'img/652594c2942b8_IMG_20231010_113711_071.jpg', 2, 2),
 (140, 'I-0012', 'Tapones auditivos con triple barrera', '25 db', '2023-10-10 20:16:47', 1.00, 1.00, 9, 'img/6525951016b48_IMG_20231010_113734_333.jpg', 2, 2),
@@ -328,7 +290,9 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (210, 'H-0115', 'Matraca', '3/8\"', '2023-10-13 00:46:51', 1.00, 1.00, 1, 'img/6528775b9ea45_IMG_20231010_154639_333.jpg', 1, 2),
 (211, 'H-0116', 'juego de llaves Allen tipo navaja', 'estándar', '2023-10-13 00:50:00', 1.00, 1.00, 1, 'img/6528781895bd7_IMG_20231010_154720_527.jpg', 1, 2),
 (212, 'H-0117', 'llave combinada.', '3/8\" X 16cm', '2023-10-13 22:46:54', 1.00, 1.00, 2, 'img/6529acbf18aa1_IMG_20231010_154821_267.jpg', 1, 2),
-(213, 'H-0118', 'Llave combinada', '9/16\"', '2023-10-13 23:40:10', 1.00, 1.00, 1, 'img/6529b93ac3c8c_IMG_20231010_155051_770.jpg', 1, 2);
+(213, 'H-0118', 'Llave combinada', '9/16\"', '2023-10-13 23:40:10', 1.00, 1.00, 1, 'img/6529b93ac3c8c_IMG_20231010_155051_770.jpg', 1, 2),
+(214, 'H-0119', 'Dado Corto 9/16\"', '9/16\" marca SURTEK', '2023-10-20 23:39:59', 30.00, 1.40, 1, 'img/6532f3afa9ab7_IMG_20231020_153551_656_hdr.jpg', 1, 2),
+(216, 'I-0028', 'Brocha 1\"', '1\" Marca Comex', '2023-10-20 23:46:41', 1.00, 1.00, 1, 'img/6532f541a667b_IMG_20231020_153607_481_hdr.jpg', 2, 2);
 
 -- --------------------------------------------------------
 
@@ -453,7 +417,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -465,7 +429,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=214;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
