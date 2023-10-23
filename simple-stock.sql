@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-10-2023 a las 23:47:11
+-- Tiempo de generación: 24-10-2023 a las 00:48:33
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -292,7 +292,31 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (212, 'H-0117', 'llave combinada.', '3/8\" X 16cm', '2023-10-13 22:46:54', 1.00, 1.00, 2, 'img/6529acbf18aa1_IMG_20231010_154821_267.jpg', 1, 2),
 (213, 'H-0118', 'Llave combinada', '9/16\"', '2023-10-13 23:40:10', 1.00, 1.00, 1, 'img/6529b93ac3c8c_IMG_20231010_155051_770.jpg', 1, 2),
 (214, 'H-0119', 'Dado Corto 9/16\"', '9/16\" marca SURTEK', '2023-10-20 23:39:59', 30.00, 1.40, 1, 'img/6532f3afa9ab7_IMG_20231020_153551_656_hdr.jpg', 1, 2),
-(216, 'I-0028', 'Brocha 1\"', '1\" Marca Comex', '2023-10-20 23:46:41', 1.00, 1.00, 1, 'img/6532f541a667b_IMG_20231020_153607_481_hdr.jpg', 2, 2);
+(216, 'I-0028', 'Brocha 1\"', '1\" Marca Comex', '2023-10-20 23:46:41', 1.00, 1.00, 1, 'img/6532f541a667b_IMG_20231020_153607_481_hdr.jpg', 2, 2),
+(218, 'H-0120', 'Llave Mixta 1/2\"', '1/2\" Marca Urrea', '2023-10-23 23:47:57', 1.00, 1.00, 2, 'img/6536ea0dc3f5e_IMG_20231010_155121_905.jpg', 1, 2),
+(219, 'H-0121', 'Llave Mixta 3/8\"', '3/8\" Marca Urrea', '2023-10-23 23:50:05', 1.00, 1.00, 2, 'img/6536ea8d57ef4_IMG_20231010_155144_754.jpg', 1, 2),
+(220, 'H-0122', 'Llave Allen 3/16\"', 'Llave Allen 3/16\"', '2023-10-23 23:54:41', 1.00, 1.00, 3, 'img/6536eba15e073_IMG_20231010_155208_965.jpg', 1, 2),
+(221, 'H-0123', 'Llave Allen 3.0mm', 'Llave Allen 3.0mm', '2023-10-23 23:56:49', 1.00, 1.00, 6, 'img/6536ec2182e0e_IMG_20231010_155230_884.jpg', 1, 2),
+(222, 'H-0124', 'Llave Allen 5/32\"', 'Llave Allen 5/32\"', '2023-10-23 23:58:12', 1.00, 1.00, 1, 'img/6536ec7417827_IMG_20231010_155305_259.jpg', 1, 2),
+(223, 'H-0125', 'Llave Allen 5/64\"', 'Llave Allen 5/64\"', '2023-10-23 23:59:25', 1.00, 1.00, 13, 'img/6536ecbd71cce_IMG_20231010_155322_039.jpg', 1, 2),
+(224, 'H-0126', 'Llave Allen 1/8\"', 'Llave Allen 1/8\"', '2023-10-24 00:00:52', 1.00, 1.00, 9, 'img/6536ed14c3b40_IMG_20231010_155448_355.jpg', 1, 2),
+(225, 'H-0127', 'Llave Allen tipo T 3/32\"', 'Llave Allen tipo T 3/32\"', '2023-10-24 00:02:19', 1.00, 1.00, 4, 'img/6536ed6bb7880_IMG_20231010_155505_574.jpg', 1, 2),
+(226, 'H-0128', 'Llave Allen Tipo T 1/8\"', 'Llave Allen Tipo T 1/8\" ', '2023-10-24 00:07:30', 1.00, 1.00, 4, 'img/6536eea290400_IMG_20231010_155516_199.jpg', 1, 2),
+(227, 'H-0129', 'Maneral ajustable tipo T 1/2\"', 'Maneral ajustable tipo T 1/2\" marca truper', '2023-10-24 00:11:46', 1.00, 1.00, 2, 'img/6536efa239bbb_IMG_20231010_155708_862.jpg', 1, 2),
+(228, 'H-0130', 'Maneral Tipo T ajustable 3/16\"', 'Maneral Tipo T ajustable 3/16\" marca Surtek', '2023-10-24 00:13:18', 1.00, 1.00, 2, 'img/6536effe5e1b3_IMG_20231010_155730_317.jpg', 1, 2),
+(229, 'H-0131', 'Manera Tipo T ajustable 1/4\"', 'Manera Tipo T ajustable 1/4\" marca truper', '2023-10-24 00:14:50', 1.00, 1.00, 1, 'img/6536f05aef38d_IMG_20231010_155813_643.jpg', 1, 2),
+(230, 'H-0132', 'Broquero 1/2\"', 'Broquero 1/2\" marca truper', '2023-10-24 00:16:16', 1.00, 1.00, 1, 'img/6536f0b0bc6f6_IMG_20231010_155800_670.jpg', 1, 2),
+(232, 'I-0029', 'Cople Rápido Macho', 'Cople Rápido Macho', '2023-10-24 00:22:15', 1.00, 1.00, 4, 'img/6536f2171b4fa_IMG_20231010_155836_005.jpg', 2, 2),
+(233, 'I-0030', 'Cople rápido hembra', 'Cople rápido hembra surtek', '2023-10-24 00:24:07', 1.00, 1.00, 2, 'img/6536f287a1b0f_IMG_20231010_155848_071.jpg', 2, 2),
+(234, 'I-0031', 'Cople rápido hembra', 'Cople rápido hembra marca truper', '2023-10-24 00:25:02', 1.00, 1.00, 1, 'img/6536f2bec2c4d_IMG_20231010_155903_289.jpg', 2, 2),
+(235, 'H-0133', 'Flexometro 5m x 16\"', 'Flexometro 5m x 16\" truper', '2023-10-24 00:27:25', 1.00, 1.00, 2, 'img/6536f34d60237_IMG_20231010_155922_495.jpg', 1, 2),
+(236, 'I-0032', 'Pila 2016 de 3V', 'Pila 2016 de 3V marca steren', '2023-10-24 00:32:10', 1.00, 1.00, 11, 'img/6536f46a4b3ac_IMG_20231010_160102_979.jpg', 2, 2),
+(238, 'I-0033', 'Pila AA 1.5V', 'Pila AA 1.5V marca RadioShack', '2023-10-24 00:40:13', 1.00, 1.00, 6, 'img/6536f64d64536_IMG_20231010_160316_111.jpg', 1, 2),
+(239, 'I-0034', 'Pila AAA', 'Pila AAA marca duracel', '2023-10-24 00:41:51', 1.00, 1.00, 6, 'img/6536f6af551d7_IMG_20231010_160547_272.jpg', 2, 2),
+(240, 'I-0035', 'Pila 9V', 'Pila 9V marca Duracell', '2023-10-24 00:44:06', 1.00, 1.00, 1, 'img/6536f736d0c06_IMG_20231010_160446_493.jpg', 2, 2),
+(241, 'I-0036', 'Gas butano', 'Gas butano Pretul', '2023-10-24 00:44:58', 1.00, 1.00, 2, 'img/6536f76a9dc4b_IMG_20231010_160737_064.jpg', 2, 2),
+(242, 'I-0037', 'WD40', 'WD40', '2023-10-24 00:45:40', 1.00, 1.00, 1, 'img/6536f79498c77_IMG_20231010_160757_880.jpg', 2, 2),
+(243, 'MPM-001', 'Barra redonda INOX 1/8\" X 1.20cm', 'Barra redonda INOX 1/8\" X 1.20cm', '2023-10-24 00:47:32', 80.00, 4.00, 5, 'img/6536f804ad445_IMG-20231016-WA0001.jpg', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -429,7 +453,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=217;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
