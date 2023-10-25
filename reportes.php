@@ -1,14 +1,11 @@
 <?php
-	
 	require_once ("session.php");
 	/* Connect To Database*/
 	require_once ("config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 	require_once ("config/conexion.php");//Contiene funcion que conecta a la base de datos
-	
 	require_once ("obtener_id.php");
-
-	$active_categoria="active";
-	$title="Categorías | Borgatta Ingeniería";
+	$active_reportes="active";
+	$title="Reportes | Borgatta Ingeniería";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +27,7 @@
 								}
 			?>
 				</div>
-			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i> Buscar Categorías</h4>
+			<h4 style="color: #FFFFFF;"><i class='glyphicon glyphicon-search'></i>Reportes</h4>
 		</div>
 		<div class="panel-body" style="background-color: #7e7f83; border-color: #d9c5b2;">
 		

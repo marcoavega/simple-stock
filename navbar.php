@@ -28,6 +28,9 @@ if (isset($title)) {
           <li class="<?php if (isset($active_usuarios)) {
             echo $active_usuarios;
           } ?>"><a href="usuarios.php"><i class='glyphicon glyphicon-user'></i> Usuarios</a></li>
+          <li class="<?php if (isset($active_reportes)) {
+            echo $active_reportes;
+          } ?>"><a href="reportes.php"><i class='glyphicon glyphicon-user'></i> Reportes</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
