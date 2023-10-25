@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2023 a las 00:48:33
+-- Tiempo de generación: 25-10-2023 a las 23:58:53
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -86,7 +86,8 @@ CREATE TABLE `historial` (
 INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `nota`, `referencia`, `cantidad`) VALUES
 (42, 130, 1, '2023-10-12 19:39:07', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Jonathan.', 1),
 (43, 137, 1, '2023-10-19 21:04:40', 'administrador quitó 1 producto(s) del inventario', 'Alejandro hdz. solicito 1 pza.', 1),
-(44, 101, 1, '2023-10-20 18:18:17', 'administrador quitó 1 producto(s) del inventario', 'pidió Abraham 1 pza', 1);
+(44, 101, 1, '2023-10-20 18:18:17', 'administrador quitó 1 producto(s) del inventario', 'pidió Abraham 1 pza', 1),
+(45, 141, 1, '2023-10-24 18:52:33', 'administrador quitó 1 producto(s) del inventario', 'Se entrego 1 par: Abraham', 1);
 
 -- --------------------------------------------------------
 
@@ -230,7 +231,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (138, 'I-0010', 'Cinta masking', '18 mm X 50 m', '2023-10-10 20:14:34', 1.00, 1.00, 1, 'img/6525948a58bdf_IMG_20231010_113650_761.jpg', 2, 2),
 (139, 'I-0011', 'Pistola de silicón', 'Chica', '2023-10-10 20:15:30', 1.00, 1.00, 1, 'img/652594c2942b8_IMG_20231010_113711_071.jpg', 2, 2),
 (140, 'I-0012', 'Tapones auditivos con triple barrera', '25 db', '2023-10-10 20:16:47', 1.00, 1.00, 9, 'img/6525951016b48_IMG_20231010_113734_333.jpg', 2, 2),
-(141, 'I-0013', 'Guantes de nitrilo', 'Grrande', '2023-10-10 20:17:52', 1.00, 1.00, 4, 'img/652595508a04e_IMG_20231010_113750_383.jpg', 2, 2),
+(141, 'I-0013', 'Guantes de nitrilo', 'Grandes', '2023-10-10 20:17:52', 1.00, 1.00, 3, 'img/652595508a04e_IMG_20231010_113750_383.jpg', 2, 2),
 (143, 'I-0014', 'Guantes de carnaza', 'Unitalla (trabajo ligero)', '2023-10-10 20:19:54', 1.00, 1.00, 2, 'img/652595ca65d46_IMG_20231010_113804_572.jpg', 2, 2),
 (144, 'I-0015', 'Portalámpara para tubo flourescente', 'FA8', '2023-10-10 20:21:09', 1.00, 1.00, 2, 'img/65259615af253_IMG_20231010_113819_730.jpg', 2, 2),
 (145, 'I-0016', 'Manguera para aire tipo resorte', '7.6 m', '2023-10-10 20:22:59', 1.00, 1.00, 2, 'img/652596833170a_IMG_20231010_115933_963.jpg', 2, 2),
@@ -340,6 +341,27 @@ INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `unidad_medida`
+--
+
+CREATE TABLE `unidad_medida` (
+  `id_unidad_medida` int(10) NOT NULL,
+  `nombre_unidad_medida` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `unidad_medida`
+--
+
+INSERT INTO `unidad_medida` (`id_unidad_medida`, `nombre_unidad_medida`) VALUES
+(1, 'pieza'),
+(2, 'metro'),
+(3, 'pulgada'),
+(4, 'kilo');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -414,6 +436,12 @@ ALTER TABLE `proveedores`
   ADD PRIMARY KEY (`id_proveedor`);
 
 --
+-- Indices de la tabla `unidad_medida`
+--
+ALTER TABLE `unidad_medida`
+  ADD PRIMARY KEY (`id_unidad_medida`);
+
+--
 -- Indices de la tabla `users`
 --
 ALTER TABLE `users`
@@ -441,7 +469,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -454,6 +482,12 @@ ALTER TABLE `orden_de_compra`
 --
 ALTER TABLE `products`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+
+--
+-- AUTO_INCREMENT de la tabla `unidad_medida`
+--
+ALTER TABLE `unidad_medida`
+  MODIFY `id_unidad_medida` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `users`

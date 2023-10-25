@@ -12,7 +12,9 @@ if (isset($con)) {
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal" method="post" id="editar_producto" name="editar_producto">
+
 						<div id="resultados_ajax2"></div>
+						
 						<div class="form-group">
 							<label for="mod_codigo" class="col-sm-3 control-label">Código</label>
 							<div class="col-sm-8">

@@ -1,29 +1,14 @@
 <?php
-session_start();
-if (!isset($_SESSION['user_login_status']) AND $_SESSION['user_login_status'] != 1) {
-    header("location: login.php");
-    exit;
-}
 
+require_once ("session.php");
 /* Connect To Database*/
 require_once("config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
 require_once("config/conexion.php");//Contiene funcion que conecta a la base de datos
 $active_usuarios = "active";
 $title = "Usuarios | Borgatta Ingeniería";
+require_once ("obtener_id.php");
 
-// Obtener el ID de permisos del usuario actual
-$user_id = $_SESSION['user_id'];
-// Consulta SQL para obtener el ID de permisos del usuario actual
-$sql = "SELECT id_permisos FROM users WHERE user_id = $user_id";
-$result = mysqli_query($con, $sql);
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
-    $user_permisos = $row['id_permisos'];
-    // Resto de tu código ...
-} else {
-    // Manejar el caso en el que no se pudo obtener el ID de permisos
-    echo "Error: No se pudo obtener el ID de permisos del usuario.";
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
