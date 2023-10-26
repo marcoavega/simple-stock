@@ -68,22 +68,33 @@ if (empty($_POST['codigo'])) {
                 // Directorio donde deseas almacenar las imágenes
                 $upload_directory = '../img/';
 
-                // Genera un nombre único para el archivo de imagen
-                $file_name = uniqid() . "_" . $file_name;
+                // Verifica si ya existe un archivo con el mismo nombre
+                if (file_exists($upload_directory . $file_name)) {
+                    $file_extension = pathinfo($file_name, PATHINFO_EXTENSION); // Obtener la extensión del archivo
+                    $file_name = pathinfo($file_name, PATHINFO_FILENAME); // Obtener el nombre del archivo sin extensión
+                    $new_file_name = $file_name . '_' . uniqid() . '.' . $file_extension; // Agregar sufijo único
+                } else {
+                    $new_file_name = $file_name;
+                }
 
                 // Ruta completa para almacenar la imagen en el servidor
-                $file_path = $upload_directory . $file_name;
+                $file_path = $upload_directory . $new_file_name;
 
-                // Mueve la imagen cargada al directorio de imágenes
+                // Mueve la imagen cargada al directorio de imágenes con el nuevo nombre
                 if (move_uploaded_file($file_tmp, $file_path)) {
-                    // Imagen cargada con éxito, ahora $file_name contiene el nombre único de la imagen
-                    $file_name = "img/" . $file_name; // Agrega el prefijo "img/"
-                    // Actualizar la URL de la imagen en la base de datos
-                    $sql_update_image = "UPDATE products SET url_imagen = '$file_name' WHERE id_producto = '$id_producto'";
-                    mysqli_query($con, $sql_update_image);
+                    // Imagen cargada con éxito
+                    $new_file_name_with_prefix = "img/" . $new_file_name; // Agrega el prefijo "img/"
+                    // Actualizar la URL de la imagen en la base de datos con el nuevo nombre
+                    $sql_update_image = "UPDATE products SET url_imagen = '$new_file_name_with_prefix' WHERE id_producto = '$id_producto'";
+                    if (mysqli_query($con, $sql_update_image)) {
+                        // Éxito
+                    } else {
+                        // Error en la consulta SQL
+                        echo "Error SQL: " . mysqli_error($con);
+                    }
                 } else {
                     // Error al cargar la imagen
-                    $errors[] = "Error al cargar la imagen.";
+                    echo "Error al cargar la imagen.";
                 }
             }
         } else {
@@ -98,33 +109,33 @@ if (empty($_POST['codigo'])) {
         // Captura la excepción y muestra un mensaje de error con detalles específicos
         echo "Ha ocurrido un error al insertar el producto: " . $e->getMessage();
     }
-}
 
-if (isset($errors) && !empty($errors)) {
-    ?>
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <strong>Error!</strong>
-        <?php
-        foreach ($errors as $error) {
-            echo $error;
-        }
+    if (isset($errors) && !empty($errors)) {
         ?>
-    </div>
-    <?php
-}
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong>
+            <?php
+            foreach ($errors as $error) {
+                echo $error;
+            }
+            ?>
+        </div>
+        <?php
+    }
 
-if (isset($messages) && !empty($messages)) {
-    ?>
-    <div class="alert alert-success" role="alert">
-        <button type="button" class a="close" data-dismiss="alert">&times;</button>
-        <strong>¡Bien hecho!</strong>
-        <?php
-        foreach ($messages as $message) {
-            echo $message;
-        }
+    if (isset($messages) && !empty($messages)) {
         ?>
-    </div>
-    <?php
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>¡Bien hecho!</strong>
+            <?php
+            foreach ($messages as $message) {
+                echo $message;
+            }
+            ?>
+        </div>
+        <?php
+    }
 }
 ?>
