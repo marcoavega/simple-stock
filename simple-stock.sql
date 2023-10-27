@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2023 a las 23:58:53
+-- Tiempo de generación: 28-10-2023 a las 00:47:14
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -87,7 +87,8 @@ INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `not
 (42, 130, 1, '2023-10-12 19:39:07', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Jonathan.', 1),
 (43, 137, 1, '2023-10-19 21:04:40', 'administrador quitó 1 producto(s) del inventario', 'Alejandro hdz. solicito 1 pza.', 1),
 (44, 101, 1, '2023-10-20 18:18:17', 'administrador quitó 1 producto(s) del inventario', 'pidió Abraham 1 pza', 1),
-(45, 141, 1, '2023-10-24 18:52:33', 'administrador quitó 1 producto(s) del inventario', 'Se entrego 1 par: Abraham', 1);
+(45, 141, 1, '2023-10-24 18:52:33', 'administrador quitó 1 producto(s) del inventario', 'Se entrego 1 par: Abraham', 1),
+(46, 110, 1, '2023-10-27 00:51:49', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Abraham.', 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +203,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (106, 'H-0053', 'Broca para metal', '3/32\"', '2023-10-10 18:41:00', 1.00, 1.00, 4, 'img/65257e9c98e90_IMG_20231010_102330_517.jpg', 1, 2),
 (107, 'H-0054', 'Broca para metal', '3/16\"', '2023-10-10 18:42:00', 1.00, 1.00, 4, 'img/65257ed86fba6_IMG_20231010_102408_714.jpg', 1, 2),
 (109, 'H-0055', 'Broca para metal', '4.00 MM', '2023-10-10 18:44:43', 1.00, 1.00, 5, 'img/65257f7bdf85b_IMG_20231010_102424_168.jpg', 1, 2),
-(110, 'H-0056', 'Broca para metal', '11/64\" 0.1719\"', '2023-10-10 18:45:49', 1.00, 1.00, 10, 'img/65257fbd8eebc_IMG_20231010_102534_809.jpg', 1, 2),
+(110, 'H-0056', 'Broca para metal', '11/64\" 0.1719\"', '2023-10-10 18:45:49', 1.00, 1.00, 9, 'img/65257fbd8eebc_IMG_20231010_102534_809.jpg', 1, 2),
 (111, 'H-0057', 'Broca para metal', '9/64\" 0.01406\"', '2023-10-10 18:46:59', 1.00, 1.00, 10, 'img/65258003de85c_IMG_20231010_102552_755.jpg', 1, 2),
 (112, 'H-0058', 'Broca para metal', '1/8\"', '2023-10-10 18:48:04', 1.00, 1.00, 8, 'img/65258044d9a12_IMG_20231010_102623_674.jpg', 1, 2),
 (114, 'H-0059', 'Broca para metal', '5/32\" 0.1562\"', '2023-10-10 18:50:35', 1.00, 1.00, 7, 'img/652580db7f955_IMG_20231010_102641_410.jpg', 1, 2),
@@ -317,7 +318,16 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (240, 'I-0035', 'Pila 9V', 'Pila 9V marca Duracell', '2023-10-24 00:44:06', 1.00, 1.00, 1, 'img/6536f736d0c06_IMG_20231010_160446_493.jpg', 2, 2),
 (241, 'I-0036', 'Gas butano', 'Gas butano Pretul', '2023-10-24 00:44:58', 1.00, 1.00, 2, 'img/6536f76a9dc4b_IMG_20231010_160737_064.jpg', 2, 2),
 (242, 'I-0037', 'WD40', 'WD40', '2023-10-24 00:45:40', 1.00, 1.00, 1, 'img/6536f79498c77_IMG_20231010_160757_880.jpg', 2, 2),
-(243, 'MPM-001', 'Barra redonda INOX 1/8\" X 1.20cm', 'Barra redonda INOX 1/8\" X 1.20cm', '2023-10-24 00:47:32', 80.00, 4.00, 5, 'img/6536f804ad445_IMG-20231016-WA0001.jpg', 7, 1);
+(243, 'MPM-001', 'Barra redonda INOX 1/8\" X 1.20cm', 'Barra redonda INOX 1/8\" X 1.20cm', '2023-10-24 00:47:32', 80.00, 4.00, 5, 'img/6536f804ad445_IMG-20231016-WA0001.jpg', 7, 1),
+(245, 'MARC001-5B S/P', 'Tornillo mesa incisal', 'Tornillo mesa incisal sin pintar', '2023-10-26 23:17:43', 20.00, 1.00, 3, 'img/653ad8eb74bfc_IMG_20231010_16081.jpg', 4, 3),
+(246, 'I-0038', 'Bolsas para basura.', 'Bolsas para basura, para desperdicio de maquinado.', '2023-10-26 23:23:55', 50.00, 2.50, 10, 'img/653ad8eb74bfc_IMG_20231010_160813_434.jpg', 2, 4),
+(247, 'MARC001-5Ñ S/P', 'Cóndilo', 'Cóndilo sin pulir.', '2023-10-26 23:28:40', 20.00, 1.00, 16, 'img/653ada08abb5c_condilo.jpg', 4, 3),
+(248, 'MARC001-4J S/P', 'Tornillo para elastómero', 'Tornillo para elastómero sin pulir.', '2023-10-26 23:47:28', 20.00, 1.00, 4, 'img/653ade70bc6c0_dhjasdkjadljAFKADADKADLKahjkdahdkahd12651.jpg', 4, 3),
+(253, 'H-0134', 'Boquilla ER25 1/2\"', 'ER25 1/2\"', '2023-10-28 00:38:15', 532.50, 294.00, 2, 'img/20231027_162509.jpg', 1, 2),
+(254, 'H-0135', 'Cortado 5/8\" HSS', '5/8\" HSS', '2023-10-28 00:40:13', 1032.40, 56.00, 1, 'img/20231027_162528.jpg', 1, 2),
+(255, 'H-0136', 'Broca 28', 'Broca 28', '2023-10-28 00:41:24', 50.75, 2.75, 3, 'img/20231027_162546.jpg', 1, 2),
+(256, 'H-0137', 'Broca 29', 'Broca 29', '2023-10-28 00:42:13', 50.75, 2.75, 3, 'img/20231027_162601.jpg', 1, 2),
+(257, 'H-0138', 'Broca 30', 'Broca 30', '2023-10-28 00:42:54', 50.75, 2.75, 3, 'img/20231027_162608.jpg', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -336,7 +346,9 @@ CREATE TABLE `proveedores` (
 
 INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`) VALUES
 (1, 'MAPI'),
-(2, 'HIGHER-TOOLS');
+(2, 'HIGHER-TOOLS'),
+(3, 'MAQUINADOS'),
+(4, 'COMPRAS FUERA.');
 
 -- --------------------------------------------------------
 
@@ -457,7 +469,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_ordenes_de_compra`
@@ -469,7 +481,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -481,7 +493,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=244;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 
 --
 -- AUTO_INCREMENT de la tabla `unidad_medida`

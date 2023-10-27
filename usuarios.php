@@ -7,8 +7,6 @@ require_once("config/conexion.php");//Contiene funcion que conecta a la base de 
 $active_usuarios = "active";
 $title = "Usuarios | Borgatta Ingeniería";
 require_once ("obtener_id.php");
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +45,7 @@ include("navbar.php");
                         <div class="col-md-5">
                             <input type="text" class="form-control" id="q" placeholder="Nombre"
                                    onkeyup='load(1);'>
-                        </div>
+                                   </div>
 
 
                         <div class="col-md-3" style="color: #FFFFFF">
