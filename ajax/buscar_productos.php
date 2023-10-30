@@ -34,7 +34,7 @@
 		// escaping, additionally removing everything that could be (html/javascript-) code
          $q = mysqli_real_escape_string($con,(strip_tags($_REQUEST['q'], ENT_QUOTES)));
 		 $id_categoria =intval($_REQUEST['id_categoria']);
-		 $aColumns = array('codigo_producto', 'nombre_producto');//Columnas de busqueda
+		 $aColumns = array('codigo_producto', 'nombre_producto',"descripcion");//Columnas de busqueda
 		 $sTable = "products";
 		 $sWhere = "";
 		
