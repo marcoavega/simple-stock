@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2023 a las 00:47:14
+-- Tiempo de generación: 27-11-2023 a las 20:07:03
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -47,7 +47,9 @@ INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`, `descripcion_categ
 (6, 'Papelería', 'Insumos de papelería.', '2023-10-03 17:49:52'),
 (7, 'Materia prima maquinado articulador', 'Materiales utilizados en el área de maquinado.', '2023-10-12 18:31:04'),
 (8, 'Piezas articulador pintadas.', 'Piezas de articulador pintadas.', '2023-10-13 22:38:14'),
-(9, 'Articulador Análogo', 'Articulador Análogo completo.', '2023-10-13 22:40:01');
+(9, 'Articulador Análogo', 'Articulador Análogo completo.', '2023-10-13 22:40:01'),
+(11, 'Tlapaleria', 'Productos comprados por fuera en tlapalería.', '2023-11-01 15:59:07'),
+(12, 'Arco Facial', 'Arco Facial Completo', '2023-11-23 20:45:21');
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,28 @@ INSERT INTO `historial` (`id_historial`, `id_producto`, `user_id`, `fecha`, `not
 (43, 137, 1, '2023-10-19 21:04:40', 'administrador quitó 1 producto(s) del inventario', 'Alejandro hdz. solicito 1 pza.', 1),
 (44, 101, 1, '2023-10-20 18:18:17', 'administrador quitó 1 producto(s) del inventario', 'pidió Abraham 1 pza', 1),
 (45, 141, 1, '2023-10-24 18:52:33', 'administrador quitó 1 producto(s) del inventario', 'Se entrego 1 par: Abraham', 1),
-(46, 110, 1, '2023-10-27 00:51:49', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Abraham.', 1);
+(46, 110, 1, '2023-10-27 00:51:49', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Abraham.', 1),
+(47, 104, 1, '2023-10-30 21:09:07', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Abraham.', 1),
+(48, 257, 1, '2023-10-31 19:25:58', 'administrador quitó 1 producto(s) del inventario', 'se dio 1 a Jonathan', 1),
+(49, 254, 1, '2023-11-01 15:57:35', 'administrador quitó 1 producto(s) del inventario', 'De entrega a personal de inyección en área de maquinados.', 1),
+(50, 265, 1, '2023-11-01 16:04:13', 'administrador quitó 1 producto(s) del inventario', 'Se entrega una a Francisco(supervisor).', 1),
+(51, 265, 1, '2023-11-01 20:01:10', 'administrador agregó 6 producto(s) al inventario', 'Se compraron 6 piezas', 6),
+(52, 247, 1, '2023-11-08 19:27:08', 'administrador quitó 1 producto(s) del inventario', 'Abraham pidió 1', 1),
+(53, 141, 1, '2023-11-10 17:22:46', 'administrador quitó 1 producto(s) del inventario', '1 para francisco (paco)', 1),
+(54, 141, 1, '2023-11-10 17:29:25', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Francisco (Paco)', 1),
+(55, 266, 1, '2023-11-10 17:30:02', 'administrador quitó 1 producto(s) del inventario', 'Se entregó a Francisco 1 ', 1),
+(56, 297, 1, '2023-11-10 21:19:26', 'administrador quitó 1 producto(s) del inventario', 'Se entrego 1 a Abraham', 1),
+(57, 298, 1, '2023-11-10 21:19:49', 'administrador quitó 1 producto(s) del inventario', 'se entrego 1 a Abraham.', 1),
+(58, 264, 1, '2023-11-16 22:28:17', 'administrador quitó 10 producto(s) del inventario', 'se utilizaron para armar equipos de revisión ', 10),
+(59, 245, 1, '2023-11-16 22:30:06', 'administrador quitó 11 producto(s) del inventario', 'maquinados pasa 11 al área de ensamble', 11),
+(60, 245, 1, '2023-11-16 22:32:00', 'administrador agregó 22 producto(s) al inventario', 'Ajuste de inventario por error anterior de quitar en lugar de agregar', 22),
+(61, 259, 1, '2023-11-16 22:33:53', 'administrador quitó 3 producto(s) del inventario', 'se utilizaron para los equipos de revisión ', 3),
+(62, 301, 1, '2023-11-21 16:24:56', 'administrador quitó 1 producto(s) del inventario', 'Se entrega al área de maquinados (Abraham)', 1),
+(63, 141, 1, '2023-11-22 18:55:09', 'administrador quitó 1 producto(s) del inventario', 'Para Jonathan', 1),
+(64, 130, 1, '2023-11-23 22:52:23', 'administrador agregó 6 producto(s) al inventario', 'Compra del 23/NOV/2023', 6),
+(65, 166, 1, '2023-11-23 23:50:52', 'administrador quitó 1 producto(s) del inventario', 'Se entrega a Abraham 1 con 3 repuestos', 1),
+(66, 323, 1, '2023-11-23 23:51:27', 'administrador quitó 3 producto(s) del inventario', 'Se entregan a Abraham', 3),
+(67, 287, 1, '2023-11-27 20:02:55', 'administrador quitó 1 producto(s) del inventario', 'Se dio a Abraham', 1);
 
 -- --------------------------------------------------------
 
@@ -198,7 +221,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (101, 'H-0048', 'Broca para metal', '7/16\"', '2023-10-10 18:33:02', 1.00, 1.00, 4, 'img/65257cbf1b672_IMG_20231010_102116_322.jpg', 1, 2),
 (102, 'H-0049', 'Broca para metal CLEVELAND', '1/8\" ', '2023-10-10 18:34:44', 1.00, 1.00, 15, 'img/65257d245682b_IMG_20231010_102147_476.jpg', 1, 2),
 (103, 'H-0050', 'Broca para metal', '2.50 MM 0.0984\"', '2023-10-10 18:35:56', 1.00, 1.00, 5, 'img/65257d6c28af3_IMG_20231010_102225_747.jpg', 1, 2),
-(104, 'H-0051', 'Broca para metal', '15/64\"', '2023-10-10 18:37:06', 1.00, 1.00, 5, 'img/65257db2b948b_IMG_20231010_102246_630.jpg', 1, 2),
+(104, 'H-0051', 'Broca para metal', '15/64\"', '2023-10-10 18:37:06', 1.00, 1.00, 4, 'img/65257db2b948b_IMG_20231010_102246_630.jpg', 1, 2),
 (105, 'H-0052', 'Broca para metal', '7/64\" 0.1094\"', '2023-10-10 18:39:47', 1.00, 1.00, 14, 'img/65257e53c347f_IMG_20231010_102607_366.jpg', 1, 2),
 (106, 'H-0053', 'Broca para metal', '3/32\"', '2023-10-10 18:41:00', 1.00, 1.00, 4, 'img/65257e9c98e90_IMG_20231010_102330_517.jpg', 1, 2),
 (107, 'H-0054', 'Broca para metal', '3/16\"', '2023-10-10 18:42:00', 1.00, 1.00, 4, 'img/65257ed86fba6_IMG_20231010_102408_714.jpg', 1, 2),
@@ -222,7 +245,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (127, 'H-0072', 'Pistola de silicón', 'Grande', '2023-10-10 19:45:02', 1.00, 1.00, 1, 'img/65258d9f1b792_IMG_20231010_113034_246.jpg', 1, 2),
 (128, 'I-0001', 'Barras de silicón', '1/2\"', '2023-10-10 19:46:26', 1.00, 1.00, 34, 'img/65258df2a32fc_IMG_20231010_113138_143.jpg', 2, 2),
 (129, 'I-0002', 'Lentes  de seguridad FOY', 'Ambar', '2023-10-10 19:47:46', 1.00, 1.00, 16, 'img/65258e42dfb13_IMG_20231010_113233_881.jpg', 2, 2),
-(130, 'I-0003', 'Lentes de seguridad PRETUL', 'Transparentes', '2023-10-10 19:49:17', 1.00, 1.00, 2, 'img/65258e9d97d1d_IMG_20231010_113315_252.jpg', 2, 2),
+(130, 'I-0003', 'Lentes de seguridad PRETUL', 'Transparentes', '2023-10-10 19:49:17', 1.00, 1.00, 8, 'img/65258e9d97d1d_IMG_20231010_113315_252.jpg', 2, 2),
 (131, 'I-0004', 'Lentes de seguridad FOY', 'Transparentes', '2023-10-10 19:53:49', 1.00, 1.00, 1, 'img/65258faddecd5_IMG_20231010_113429_054.jpg', 2, 2),
 (132, 'I-0005', 'Plasti acero', '25 ml', '2023-10-10 20:00:31', 1.00, 1.00, 1, 'img/6525913f69a16_IMG_20231010_113453_281.jpg', 2, 2),
 (133, 'I-0006', 'Cinta sella roscas', '1/2\" X 7 m', '2023-10-10 20:03:55', 1.00, 1.00, 10, 'img/6525920b640f5_IMG_20231010_113514_174.jpg', 2, 2),
@@ -232,7 +255,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (138, 'I-0010', 'Cinta masking', '18 mm X 50 m', '2023-10-10 20:14:34', 1.00, 1.00, 1, 'img/6525948a58bdf_IMG_20231010_113650_761.jpg', 2, 2),
 (139, 'I-0011', 'Pistola de silicón', 'Chica', '2023-10-10 20:15:30', 1.00, 1.00, 1, 'img/652594c2942b8_IMG_20231010_113711_071.jpg', 2, 2),
 (140, 'I-0012', 'Tapones auditivos con triple barrera', '25 db', '2023-10-10 20:16:47', 1.00, 1.00, 9, 'img/6525951016b48_IMG_20231010_113734_333.jpg', 2, 2),
-(141, 'I-0013', 'Guantes de nitrilo', 'Grandes', '2023-10-10 20:17:52', 1.00, 1.00, 3, 'img/652595508a04e_IMG_20231010_113750_383.jpg', 2, 2),
+(141, 'I-0013', 'Guantes de nitrilo', 'Grandes', '2023-10-10 20:17:52', 1.00, 1.00, 0, 'img/652595508a04e_IMG_20231010_113750_383.jpg', 2, 2),
 (143, 'I-0014', 'Guantes de carnaza', 'Unitalla (trabajo ligero)', '2023-10-10 20:19:54', 1.00, 1.00, 2, 'img/652595ca65d46_IMG_20231010_113804_572.jpg', 2, 2),
 (144, 'I-0015', 'Portalámpara para tubo flourescente', 'FA8', '2023-10-10 20:21:09', 1.00, 1.00, 2, 'img/65259615af253_IMG_20231010_113819_730.jpg', 2, 2),
 (145, 'I-0016', 'Manguera para aire tipo resorte', '7.6 m', '2023-10-10 20:22:59', 1.00, 1.00, 2, 'img/652596833170a_IMG_20231010_115933_963.jpg', 2, 2),
@@ -252,7 +275,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (163, 'I-0020', 'Rollo de lija N. 100', '1 1/2\" X 148 Ft.', '2023-10-10 22:12:08', 1.00, 1.00, 1, 'img/6525b0191cc09_IMG_20231010_122251_179.jpg', 2, 2),
 (164, 'I-0021', 'Rollo de lija grano 120', '38 mm X 45 m', '2023-10-10 22:13:34', 1.00, 1.00, 1, 'img/6525b06eba83a_IMG_20231010_122323_456.jpg', 2, 2),
 (165, 'I-0022', 'Mini cepillo de alambre', 'Surtido', '2023-10-10 22:15:54', 1.00, 1.00, 10, 'img/6525b0fa58367_IMG_20231010_122411_264.jpg', 2, 2),
-(166, 'H-0083', 'Navaja retráctil', '18 mm', '2023-10-10 22:18:25', 1.00, 1.00, 2, 'img/6525b1918b595_IMG_20231010_122514_553.jpg', 1, 2),
+(166, 'H-0083', 'Navaja retráctil', '18 mm', '2023-10-10 22:18:25', 1.00, 1.00, 1, 'img/6525b1918b595_IMG_20231010_122514_553.jpg', 1, 2),
 (167, 'H-0084', 'Navaja retráctil', 'Pequeña', '2023-10-10 22:20:33', 1.00, 1.00, 1, 'img/6525b2121263e_IMG_20231010_122537_660.jpg', 1, 2),
 (168, 'I-0023', 'Repuesto para navajas', 'Repuesto', '2023-10-10 22:23:34', 1.00, 1.00, 8, 'img/6525b2c625380_IMG_20231010_122544_491.jpg', 2, 2),
 (170, 'H-0085', 'Cuchilla para linóleo', '7\"', '2023-10-10 22:25:51', 1.00, 1.00, 1, 'img/6525b34f832e0_IMG_20231010_122619_684.jpg', 1, 2),
@@ -266,7 +289,7 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (183, 'H-0092', 'Maneral ajustable', '1/16\" X 1/4\"', '2023-10-10 23:27:46', 1.00, 1.00, 1, 'img/6525c1d3111fa_IMG_20231010_140321_313.jpg', 1, 2),
 (184, 'H-0093', 'Lima bastarda de media caña', '5\"', '2023-10-10 23:30:01', 1.00, 1.00, 1, 'img/6525c259c5ab7_IMG_20231010_140403_929.jpg', 1, 2),
 (185, 'H-0094', 'Broca para concreto', '1/4\" X 12', '2023-10-10 23:32:19', 1.00, 1.00, 1, 'img/6525c2e3e549b_IMG_20231010_140424_912.jpg', 1, 2),
-(186, 'H-0095', 'Segueta', 'Diente fino', '2023-10-10 23:34:38', 1.00, 1.00, 1, 'img/6525c36f1b8b4_IMG_20231010_140447_425.jpg', 1, 2),
+(186, 'H-0095', 'Segueta 24dpp 12\" diente fino', 'Segueta 24dpp 12\" diente fino', '2023-10-10 23:34:38', 1.00, 1.00, 1, 'img/6525c36f1b8b4_IMG_20231010_140447_425.jpg', 1, 4),
 (187, 'H-0096', 'Broca para concreto', 'Longitud 12\"', '2023-10-10 23:36:42', 1.00, 1.00, 1, 'img/6525c3eab5029_IMG_20231010_140603_518.jpg', 1, 2),
 (188, 'H-0097', 'Maneral tipo garrote', '5/32\" X 3/4\"', '2023-10-10 23:38:50', 1.00, 1.00, 1, 'img/6525c46a46249_IMG_20231010_140616_249.jpg', 1, 2),
 (189, 'H-0098', 'Tijera', '8\"', '2023-10-10 23:41:52', 1.00, 1.00, 1, 'img/6525c520ab147_IMG_20231010_152301_159.jpg', 1, 2),
@@ -319,15 +342,90 @@ INSERT INTO `products` (`id_producto`, `codigo_producto`, `nombre_producto`, `de
 (241, 'I-0036', 'Gas butano', 'Gas butano Pretul', '2023-10-24 00:44:58', 1.00, 1.00, 2, 'img/6536f76a9dc4b_IMG_20231010_160737_064.jpg', 2, 2),
 (242, 'I-0037', 'WD40', 'WD40', '2023-10-24 00:45:40', 1.00, 1.00, 1, 'img/6536f79498c77_IMG_20231010_160757_880.jpg', 2, 2),
 (243, 'MPM-001', 'Barra redonda INOX 1/8\" X 1.20cm', 'Barra redonda INOX 1/8\" X 1.20cm', '2023-10-24 00:47:32', 80.00, 4.00, 5, 'img/6536f804ad445_IMG-20231016-WA0001.jpg', 7, 1),
-(245, 'MARC001-5B S/P', 'Tornillo mesa incisal', 'Tornillo mesa incisal sin pintar', '2023-10-26 23:17:43', 20.00, 1.00, 3, 'img/653ad8eb74bfc_IMG_20231010_16081.jpg', 4, 3),
+(245, 'MARC001-5B S/P', 'Tornillo mesa incisal', 'Tornillo mesa incisal sin pintar', '2023-10-26 23:17:43', 20.00, 1.00, 14, 'img/653ad8eb74bfc_IMG_20231010_16081.jpg', 4, 3),
 (246, 'I-0038', 'Bolsas para basura.', 'Bolsas para basura, para desperdicio de maquinado.', '2023-10-26 23:23:55', 50.00, 2.50, 10, 'img/653ad8eb74bfc_IMG_20231010_160813_434.jpg', 2, 4),
-(247, 'MARC001-5Ñ S/P', 'Cóndilo', 'Cóndilo sin pulir.', '2023-10-26 23:28:40', 20.00, 1.00, 16, 'img/653ada08abb5c_condilo.jpg', 4, 3),
+(247, 'MARC001-5Ñ S/P', 'Cóndilo', 'Cóndilo sin pulir.', '2023-10-26 23:28:40', 20.00, 1.00, 15, 'img/653ada08abb5c_condilo.jpg', 4, 3),
 (248, 'MARC001-4J S/P', 'Tornillo para elastómero', 'Tornillo para elastómero sin pulir.', '2023-10-26 23:47:28', 20.00, 1.00, 4, 'img/653ade70bc6c0_dhjasdkjadljAFKADADKADLKahjkdahdkahd12651.jpg', 4, 3),
 (253, 'H-0134', 'Boquilla ER25 1/2\"', 'ER25 1/2\"', '2023-10-28 00:38:15', 532.50, 294.00, 2, 'img/20231027_162509.jpg', 1, 2),
-(254, 'H-0135', 'Cortado 5/8\" HSS', '5/8\" HSS', '2023-10-28 00:40:13', 1032.40, 56.00, 1, 'img/20231027_162528.jpg', 1, 2),
+(254, 'H-0135', 'Cortador 5/8\" HSS', '5/8\" HSS', '2023-10-28 00:40:13', 1032.40, 56.00, 0, 'img/20231027_162528.jpg', 1, 2),
 (255, 'H-0136', 'Broca 28', 'Broca 28', '2023-10-28 00:41:24', 50.75, 2.75, 3, 'img/20231027_162546.jpg', 1, 2),
 (256, 'H-0137', 'Broca 29', 'Broca 29', '2023-10-28 00:42:13', 50.75, 2.75, 3, 'img/20231027_162601.jpg', 1, 2),
-(257, 'H-0138', 'Broca 30', 'Broca 30', '2023-10-28 00:42:54', 50.75, 2.75, 3, 'img/20231027_162608.jpg', 1, 2);
+(257, 'H-0138', 'Broca 30', 'Broca 30', '2023-10-28 00:42:54', 50.75, 2.75, 2, 'img/20231027_162608.jpg', 1, 2),
+(258, 'H-0139', 'Broca para metal 7/32\"', 'Broca para metal 7/32\"', '2023-10-30 21:45:35', 80.75, 1.00, 5, 'img/IMG_20231030_132125_501_hdr.jpg', 1, 2),
+(259, 'MARC001-5X', 'Porta platina', 'Porta platina MARC001-5X ', '2023-10-31 21:20:45', 40.00, 2.00, 5, 'img/IMG_20231031_085206_665_hdr.jpg', 4, 3),
+(260, 'MARC001-5Q', 'Tornillo para varilla de soporte', 'Tornillo para varilla de soporte MARC001-5Q', '2023-10-31 21:48:57', 8.00, 0.50, 1, 'img/IMG_20231031_085129_359_hdr.jpg', 4, 3),
+(261, 'MARC001-6D', 'Tornillo para retención de base superior.', 'Tornillo para retención de base superior. (TORNILLO SUJECION 3) MARC001-6D', '2023-10-31 21:53:01', 8.00, 0.50, 2, 'img/IMG_20231031_085117_602_hdr.jpg', 4, 3),
+(262, 'MARC001-4ñ', 'VARILLA DE SOPORTE', 'VARILLA DE SOPORTE MARC001-4ñ', '2023-10-31 21:57:41', 40.00, 2.00, 1, 'img/IMG_20231031_085158_182_hdr.jpg', 4, 3),
+(263, 'MARC001-BR', 'Tornillo para varilla niveladora', 'Tornillo para varilla niveladora, MARC001-BR (área de nivel de altura)', '2023-10-31 22:01:36', 35.00, 2.00, 1, 'img/IMG_20231031_085140_134_hdr.jpg', 4, 3),
+(264, 'MARC001-5C', 'Pernos para sujeción de porta platina', 'Pernos para sujeción de porta platina, MARC001-5C', '2023-10-31 22:03:32', 10.00, 0.50, 2, 'img/pernos.jpg', 4, 3),
+(265, 'I-0039', 'Kola loka', 'Pegamento kola loka', '2023-11-01 16:03:46', 20.00, 1.00, 10, 'img/IMG_20231101_080204_317_hdr.jpg', 11, 4),
+(266, 'I-0040', 'Disco para esmeriladora angular para corte de metal 4 1/2\"', 'Disco para esmeriladora angular para corte de metal 4 1/2\"  marca maxtool', '2023-11-01 20:13:41', 50.00, 2.50, 2, 'img/IMG_20231101_120033_192_hdr.jpg', 11, 4),
+(267, 'P-0001', 'Hojas Blancas paquete 500 hojas', 'Hojas Blancas paquete 500 hojas', '2023-11-08 22:45:56', 1.00, 1.00, 3, 'img/IMG_20231108_124600_652_hdr.jpg', 6, 5),
+(268, 'P-0002', 'Etiquetas redondas dorada paquete', 'Etiquetas redondas dorada paquete', '2023-11-08 22:46:49', 1.00, 1.00, 4, 'img/IMG_20231108_124920_580_hdr.jpg', 6, 5),
+(269, 'P-0003', 'Grapas caja de 5000 pzas.', 'Grapas caja de 5000 pzas.', '2023-11-08 22:47:44', 1.00, 1.00, 2, 'img/IMG_20231108_125114_229_hdr.jpg', 6, 5),
+(270, 'P-0004', 'Libreta profesional cuadro grande', 'Libreta profesional cuadro grande', '2023-11-08 22:48:45', 20.00, 1.00, 5, 'img/IMG_20231108_125216_282_hdr.jpg', 6, 5),
+(271, 'P-0005', 'Hojas de colores combinadas', 'Hojas de colores combinadas por hojas', '2023-11-08 22:50:01', 1.00, 1.00, 150, 'img/IMG_20231108_125341_661_hdr.jpg', 6, 5),
+(272, 'P-0006', 'Protectores de hojas', 'Protectores de hojas por pieza', '2023-11-08 22:51:10', 1.00, 1.00, 60, 'img/IMG_20231108_124600_652_hdr_654c02cef14dc.jpg', 6, 5),
+(273, 'P-0007', 'Folder azul', 'Folder azul', '2023-11-08 22:52:23', 1.00, 1.00, 70, 'img/IMG_20231108_125216_282_hdr_654c0317801c3.jpg', 6, 5),
+(274, 'P-0008', 'Tinta color azul', 'Tinta color roja', '2023-11-08 22:53:18', 1.00, 1.00, 1, 'img/IMG_20231108_125834_988_hdr.jpg', 6, 5),
+(275, 'P-0009', 'Tinta color negro', 'Tinta color negro', '2023-11-08 22:54:02', 1.00, 1.00, 1, 'img/IMG_20231108_125841_629_hdr.jpg', 6, 5),
+(276, 'P-0010', 'Cinta chica transparente scotch 550', 'Cinta chica transparente scotch 550', '2023-11-08 22:54:52', 1.00, 1.00, 7, 'img/IMG_20231108_130008_700_hdr.jpg', 6, 5),
+(277, 'P-0011', 'Marcador sharpie delgado punto fino color rojo.', 'Marcador sharpie delgado punto fino color rojo.', '2023-11-08 22:57:03', 10.30, 7.00, 12, 'img/IMG_20231108_130629_590_hdr.jpg', 6, 5),
+(278, 'P-0012', 'Marcador Sharpie delgado punto fino color negro', 'Marcador Sharpie delgado punto fino color negro', '2023-11-08 22:59:36', 17.10, 1.00, 8, 'img/IMG_20231108_130751_772_hdr.jpg', 6, 5),
+(279, 'P-0013', 'Marcador BIC delgado punto fino color negro', 'Marcador BIC delgado punto fino color negro', '2023-11-08 23:03:26', 17.40, 1.00, 6, 'img/IMG_20231108_130847_249_hdr.jpg', 6, 5),
+(280, 'P-0014', 'Marcador Baco delgado punto fino color azul', 'Marcador Baco delgado punto fino color azul', '2023-11-08 23:06:36', 18.00, 1.00, 8, 'img/IMG_20231108_130937_485_hdr.jpg', 6, 5),
+(281, 'p-0015', 'Bolígrafo Azor punto fino color negro', 'Bolígrafo Azor punto fino color negro', '2023-11-08 23:07:48', 1.00, 1.00, 8, 'img/IMG_20231108_131122_472_hdr.jpg', 6, 5),
+(282, 'P-0016', 'Bolígrafo azor punto fino color rojo', 'Bolígrafo azor punto fino color rojo', '2023-11-08 23:09:07', 1.00, 1.00, 6, 'img/IMG_20231108_131146_164_hdr.jpg', 6, 5),
+(283, 'P-0017', 'Bolígrafo Azor punto fino color azul', 'Bolígrafo Azor punto fino color azul', '2023-11-08 23:10:00', 1.00, 1.00, 6, 'img/IMG_20231108_131236_084_hdr.jpg', 6, 5),
+(284, 'P-0018', 'Marcador Esterbrook negro', 'Marcador Esterbrook negro', '2023-11-08 23:11:43', 28.12, 2.50, 4, 'img/IMG_20231108_131330_455_hdr.jpg', 6, 5),
+(285, 'P-0019', 'Marcador Esterbrook color azul', 'Marcador Esterbrook color azul', '2023-11-08 23:13:00', 28.12, 1.50, 4, 'img/IMG_20231108_131521_459_hdr.jpg', 6, 5),
+(286, 'P-0020', 'Marcador Esterbrook color rojo', 'Marcador Esterbrook color rojo', '2023-11-08 23:14:45', 28.12, 1.50, 2, 'img/IMG_20231108_132237_713_hdr.jpg', 6, 5),
+(287, 'P-0021', 'Boligrafo BIC color negro punto fino', 'Boligrafo BIC color negro punto fino', '2023-11-08 23:16:56', 1.00, 1.00, 4, 'img/IMG_20231108_131634_257_hdr.jpg', 6, 5),
+(288, 'P-0022', 'Bolígrafo BIC color negro punto mediano', 'Bolígrafo BIC color negro punto mediano', '2023-11-08 23:19:17', 1.00, 1.00, 5, 'img/IMG_20231108_131711_565_hdr.jpg', 6, 5),
+(289, 'P-0023', 'Lapiz Paper Mate HB 2.5', 'Lapiz Paper Mate HB 2.5', '2023-11-08 23:20:54', 1.00, 1.00, 12, 'img/IMG_20231108_132053_648_hdr.jpg', 6, 5),
+(290, 'P-0024', 'Marcador Azor grueso color rojo', 'Marcador Azor grueso color rojo', '2023-11-08 23:24:24', 15.24, 1.00, 2, 'img/IMG_20231108_132209_726_hdr.jpg', 6, 5),
+(291, 'P-0025', 'Marcador sharpie punto ultra fino color negro', 'Marcador sharpie punto ultra fino color negro', '2023-11-08 23:26:18', 17.10, 1.00, 5, 'img/IMG_20231108_132331_183_hdr.jpg', 6, 5),
+(292, 'P-0026', 'Marcador colores surtido', 'Marcador colores surtido', '2023-11-08 23:28:15', 11.20, 11.20, 4, 'img/IMG_20231108_132107_774_hdr.jpg', 6, 5),
+(293, 'P-0027', 'Marcador Magistral color negro', 'Marcador Magistral color negro', '2023-11-08 23:30:12', 18.62, 1.00, 4, 'img/IMG_20231108_132439_110_hdr.jpg', 6, 5),
+(294, 'P-0028', 'Lapiz adhesivo Dixon', 'Lapiz adhesivo Dixon', '2023-11-08 23:31:01', 1.00, 1.00, 6, 'img/IMG_20231108_132710_926_hdr.jpg', 6, 5),
+(295, 'P-0029', 'Masking Tape Janel 24mm', 'Masking Tape Janel 24mm', '2023-11-08 23:32:10', 23.66, 1.40, 5, 'img/IMG_20231108_132844_337_hdr.jpg', 6, 5),
+(296, 'H-0140', 'Disco para esmeril, corte de metal, delgado de 4-1/2\"', 'marca Astromex', '2023-11-10 17:35:52', 50.00, 2.50, 2, 'img/IMG20231110103057.jpg', 11, 4),
+(297, 'H-141', 'Boquilla ER40 1/4\" (7-6mm)', 'Boquilla ER40 1/4\" (7-6mm)', '2023-11-10 21:02:26', 580.00, 32.87, 0, 'img/IMG20231110133250.jpg', 1, 2),
+(298, 'H-0142', 'Boquilla ER32 3/32\" (3-2mm)', 'Boquilla ER32 3/32\" (3-2mm)', '2023-11-10 21:06:02', 539.00, 30.54, 0, 'img/IMG20231110133258.jpg', 1, 2),
+(299, 'H-0143', 'Rima recta 3/16\" clevelan', 'Rima recta 3/16\" clevelan', '2023-11-10 21:08:22', 882.00, 50.00, 1, 'img/IMG20231110133317.jpg', 1, 2),
+(300, 'H-0144', 'Broca HSS 4F 3/32\" Cleveland', 'Broca HSS 4F 3/32\" Cleveland', '2023-11-10 21:10:31', 28.00, 1.59, 10, 'img/IMG20231110133421.jpg', 1, 2),
+(301, 'H-0145', 'Sierra cinta classic 3/4\" X 39\" 6-10 dientes Lenox', 'Sierra cinta classic 3/4\" X 39\" 6-10 dientes Lenox', '2023-11-10 21:12:45', 960.00, 54.40, 0, 'img/IMG20231110133636.jpg', 1, 2),
+(302, 'H-0146', 'Broca HSS #7 Cleveland', 'Broca HSS #7 Cleveland', '2023-11-10 21:14:33', 50.75, 2.88, 6, 'img/IMG20231110133415.jpg', 1, 2),
+(303, 'H-0147', 'Broca HSS #20 Cleveland', 'Broca HSS #20 Cleveland', '2023-11-10 21:16:17', 50.75, 2.88, 6, 'img/IMG20231110133410.jpg', 1, 2),
+(304, 'H-148', 'Cortador vertical de HSS 4F 1/8\" CLEV', 'Cortador vertical de HSS 4F 1/8\" CLEV', '2023-11-10 21:18:44', 340.75, 19.31, 2, 'img/IMG20231110133343.jpg', 1, 2),
+(305, 'I-0041', 'Plasti Loka', 'Plasti Loka', '2023-11-14 16:18:20', 25.00, 1.40, 2, 'img/IMG20231114083449.jpg', 11, 4),
+(306, 'MARC001-6M', 'Tornillo de sujeción 2, (tornillo para Portaplatina y base de calibración.', 'Tornillo de sujeción 2, (tornillo para Portaplatina y base de calibración.', '2023-11-16 22:40:32', 10.00, 0.50, 14, 'img/IMG_20231003_085415_568_hdr.jpg', 4, 3),
+(307, 'MARC001-6G', 'Soporte para pantalla central', 'Soporte para pantalla central', '2023-11-16 22:43:31', 25.00, 1.30, 6, 'img/IMG_20231027_075910_962_hdr.jpg', 4, 3),
+(308, 'MARC001-5J', 'Pantalla de Registro Derecha', 'Pantalla de Registro Derecha', '2023-11-16 22:48:56', 15.00, 1.00, 13, 'img/IMG_20231010_075948_466.jpg', 4, 3),
+(309, 'MARC001-5H', 'Pantalla de registro izquierda', 'Pantalla de registro izquierda', '2023-11-16 22:50:06', 15.00, 1.00, 12, 'img/pantallas derechas.jpg', 4, 3),
+(310, 'MARC001-5A', 'Mesa Incisal', 'Mesa Incisal', '2023-11-16 22:53:12', 25.00, 1.30, 13, 'img/IMG_20230913_083850_991_hdr.jpg', 4, 3),
+(311, 'MARC001-5T', 'Varilla para Sujeción Central', 'Varilla para Sujeción Central', '2023-11-17 23:00:44', 25.00, 2.30, 5, 'img/varillacentral.jpg', 4, 3),
+(312, 'MPM-0001', 'IMAN DE NEODIMIO 3/4\" x 0.100\"', 'IMAN DE NEODIMIO 3/4\" x 0.100\"', '2023-11-23 19:14:42', 26.68, 1.40, 100, 'img/IMG20231122153955.jpg', 7, 6),
+(313, 'I-0042', 'Gasolina Blanca', 'Gasolina Blanca ', '2023-11-23 19:17:33', 90.00, 5.24, 20, 'img/IMG20231114130100.jpg', 2, 7),
+(314, 'I-0043', 'Retazo de Trapo blanco', 'Retazo de Trapo blanco', '2023-11-23 19:20:22', 100.00, 5.82, 20, 'img/IMG20231114130103.jpg', 2, 7),
+(315, 'H-0149', 'Boquilla ER40 1/8\"(4-3)', 'Boquilla ER40 1/8\"(4-3)', '2023-11-23 19:23:16', 580.00, 6.00, 2, 'img/IMG20231122115247.jpg', 1, 2),
+(316, 'H-0150', 'Broca numerica #19 Cleveland', 'Broca numerica #19 Cleveland', '2023-11-23 19:25:27', 50.75, 6.00, 5, 'img/IMG20231122115311.jpg', 1, 2),
+(317, 'H-0151', 'Llave allen bola 3/32\" en L', 'Llave allen bola 3/32\" en L', '2023-11-23 19:27:01', 38.00, 1.50, 10, 'img/IMG20231122115332.jpg', 1, 2),
+(318, 'H-0152', 'Broca HSS 1/8\" larga', 'Broca HSS 1/8\" larga', '2023-11-23 20:26:45', 50.75, 3.20, 2, 'img/IMG20231122115411.jpg', 1, 2),
+(319, 'I-0044', 'Playo para empaque rollo chico', 'Playo para empaque rollo chico', '2023-11-23 20:37:12', 40.00, 2.00, 6, 'img/IMG20231114130404.jpg', 2, 4),
+(320, 'MARC001-4Q', 'SEGURO', 'SEGURO', '2023-11-23 21:02:54', 15.00, 1.00, 5, 'img/IMG20231116145914.jpg', 4, 3),
+(321, 'MARC001-4K', 'Varilla para Nivel', 'Varilla para Nivel', '2023-11-23 21:08:32', 25.00, 1.20, 1, 'img/Captura de pantalla 2023-11-23 140637.png', 4, 3),
+(322, 'MARC001-5R', 'Pin de Marca Central', 'Pin de Marca Central', '2023-11-23 21:16:40', 10.00, 0.50, 1, 'img/Captura de pantalla 2023-11-23 141330.png', 4, 3),
+(323, 'I-0045', 'Cuchillas, Navajas de repuesto de 18mm', 'Cuchillas, Navajas de repuesto de 18mm', '2023-11-23 22:20:08', 3.14, 0.03, 17, 'img/.trashed-1703363215-IMG20231123142433.jpg', 2, 4),
+(324, 'H-0153', 'Lima Plana Muza de 8\" con mango', 'Lima Plana Muza de 8\" con mango', '2023-11-23 22:23:12', 65.52, 3.00, 2, 'img/IMG20231123143139.jpg', 1, 4),
+(325, 'H-0154', 'Juego de 11 Brocas para Metal y concreto', 'Juego de 11 Brocas para Metal y concreto', '2023-11-23 22:28:46', 176.00, 8.00, 1, 'img/IMG20231123142325.jpg', 1, 4),
+(326, 'I-0046', 'Guantes de nylon recubiertos de poliuretano MEDIANOS', 'Guantes de nylon recubiertos de poliuretano MEDIANOS', '2023-11-23 22:38:57', 42.00, 2.10, 5, 'img/IMG20231123142300.jpg', 2, 4),
+(327, 'I-0047', 'Guantes de nylon recubiertos de poliuretano GRANDES', 'Guantes de nylon recubiertos de poliuretano GRANDES', '2023-11-23 22:40:29', 42.24, 2.60, 5, 'img/IMG20231123142307.jpg', 2, 4),
+(328, 'H-0155', 'Escuadra Para Carpintero de 8\"', 'Escuadra Para Carpintero de 8\"', '2023-11-23 22:43:42', 99.00, 6.00, 2, 'img/IMG20231123142858.jpg', 1, 4),
+(329, 'I-0048', 'Segueta bimetálica de 18DPP largo de 12\"', 'Segueta bimetálica de 18DPP largo de 12\"', '2023-11-23 22:48:42', 20.25, 1.30, 6, 'img/IMG20231123143300.jpg', 2, 4),
+(330, 'I-0049', 'Segueta Bimetálica de 24DPP, 12\" de largo', 'Segueta Bimetálica de 24DPP, 12\" de largo', '2023-11-23 22:51:02', 20.25, 1.30, 6, 'img/IMG20231123143322.jpg', 2, 4),
+(331, 'H-0156', 'Llave combinada de 1/2\" X 170mm. de largo', 'Llave combinada de 1/2\" X 170mm. de largo', '2023-11-23 22:55:27', 25.00, 1.40, 1, 'img/IMG20231123143227.jpg', 1, 4),
+(332, 'H-0157', 'Llave combinada 9/16\" X 180mm de largo', 'Llave combinada 9/16\" X 180mm de largo', '2023-11-23 22:56:58', 30.17, 1.55, 1, 'img/IMG20231123143215.jpg', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -348,7 +446,10 @@ INSERT INTO `proveedores` (`id_proveedor`, `nombre_proveedor`) VALUES
 (1, 'MAPI'),
 (2, 'HIGHER-TOOLS'),
 (3, 'MAQUINADOS'),
-(4, 'COMPRAS FUERA.');
+(4, 'COMPRAS FUERA.'),
+(5, 'Papeleria TONY'),
+(6, 'INNOVATEC PROMOCIONAL'),
+(7, 'FRANCISCO PAEZ RAMIREZ');
 
 -- --------------------------------------------------------
 
@@ -390,8 +491,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `id_permisos`, `date_added`) VALUES
-(1, 'administrador', '$2y$10$UDPSZSDbQ9BP.oi3uAdcYuN/fMguULJ.LrlNexhO1c7M9LFNYl2LO', 1, '2016-12-19 15:06:00'),
-(6, 'usuario', '$2y$10$9PCVb7K/w5IsaApS6g.hTO/Z.guVJ3DipV98LFs0IVQvMydqvz/di', 2, '2023-10-07 09:11:23');
+(1, 'administrador', '$2y$10$UDPSZSDbQ9BP.oi3uAdcYuN/fMguULJ.LrlNexhO1c7M9LFNYl2LO', 1, '2023-10-07 15:06:00'),
+(6, 'usuario', '$2y$10$9PCVb7K/w5IsaApS6g.hTO/Z.guVJ3DipV98LFs0IVQvMydqvz/di', 2, '2023-10-07 16:11:23');
 
 --
 -- Índices para tablas volcadas
@@ -469,7 +570,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `detalles_ordenes_de_compra`
@@ -481,7 +582,7 @@ ALTER TABLE `detalles_ordenes_de_compra`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT de la tabla `orden_de_compra`
@@ -493,7 +594,7 @@ ALTER TABLE `orden_de_compra`
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=333;
 
 --
 -- AUTO_INCREMENT de la tabla `unidad_medida`
